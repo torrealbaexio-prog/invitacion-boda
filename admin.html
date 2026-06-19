@@ -1,45 +1,250 @@
-function generarInvitacion() {
-    const nombre = document.getElementById('input-nombre').value.trim();
-    const pases = document.getElementById('input-pases').value.trim();
-    const tipo = document.getElementById('select-tipo').value;
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel de Control - Invitaciones de Boda</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f4f6f9;
+            margin: 0;
+            padding: 20px;
+            color: #333;
+        }
+        .container {
+            max-width: 900px;
+            margin: 0 auto;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+        }
+        h1, h2 {
+            color: #4a5d24;
+        }
+        .form-group {
+            margin-bottom: 15px;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 5px;
+            font-weight: bold;
+        }
+        .form-group input, .form-group select {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            box-sizing: border-box;
+        }
+        button {
+            background-color: #4a5d24;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 1rem;
+            font-weight: bold;
+        }
+        button:hover {
+            background-color: #3d4e1e;
+        }
+        #resultado-link {
+            background-color: #e8f5e9;
+            border: 1px solid #c8e6c9;
+            padding: 15px;
+            margin-top: 20px;
+            border-radius: 4px;
+        }
+        #link-generado {
+            width: 100%;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #bbb;
+            border-radius: 4px;
+            font-weight: bold;
+            color: #333;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 30px;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 12px;
+            text-align: left;
+        }
+        th {
+            background-color: #4a5d24;
+            color: white;
+        }
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+        .badge {
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 0.85rem;
+            font-weight: bold;
+        }
+        .badge-enviado { background-color: #ffe0b2; color: #e65100; }
+        .badge-visto { background-color: #b3e5fc; color: #01579b; }
+        .btn-eliminar {
+            background-color: #c62828;
+            padding: 6px 10px;
+            font-size: 0.85rem;
+        }
+        .btn-eliminar:hover {
+            background-color: #b71c1c;
+        }
+    </style>
+</head>
+<body>
 
-    if (!nombre) {
-        alert("Por favor, introduce al menos el nombre del invitado principal.");
-        return;
-    }
+    <div class="container">
+        <h1>Panel Administrativo - Dayana & Exio</h1>
+        <p>Generador de invitaciones con enlaces estéticos personalizados.</p>
+        
+        <hr style="border: 0; height: 1px; background: #ddd; margin: 20px 0;">
 
-    const idUnico = 'id_' + Date.now();
+        <!-- FORMULARIO DE REGISTRO -->
+        <h2>Crear Nueva Invitación</h2>
+        <div class="form-group">
+            <label for="input-nombre">Nombre del Invitado Principal:</label>
+            <input type="text" id="input-nombre" placeholder="Ej. Dayana Garzon">
+        </div>
+        
+        <div class="form-group">
+            <label for="input-pases">Nombres de los Acompañantes (Separados por comas):</label>
+            <input type="text" id="input-pases" placeholder="Ej. Daniela, Juliet, Sebastian">
+        </div>
+        
+        <div class="form-group">
+            <label for="select-tipo">Ubicación del Invitado:</label>
+            <select id="select-tipo">
+                <option value="local">Local (Cúcuta / Colombia)</option>
+                <option value="afuera">Fuera (Internacional con módulo de regalos)</option>
+            </select>
+        </div>
 
-    const nuevoInvitado = {
-        id: idUnico,
-        nombre: nombre,
-        pases: pases,
-        tipo: tipo,
-        estado: 'enviado'
-    };
+        <button onclick="generarInvitacion()">Generar Enlace Elegante</button>
 
-    // Almacenamiento local
-    const dbInvitados = JSON.parse(localStorage.getItem('boda_invitados')) || [];
-    dbInvitados.push(nuevoInvitado);
-    localStorage.setItem('boda_invitados', JSON.stringify(dbInvitados));
+        <!-- CAJA DE RESULTADO (OCULTA POR DEFECTO) -->
+        <div id="resultado-link" style="display: none;">
+            <p style="margin-top: 0; font-weight: bold; color: #2e7d32;">✓ ¡Enlace generado con éxito! Copia este link:</p>
+            <input type="text" id="link-generado" readonly onclick="this.select()">
+        </div>
 
-    // GENERACIÓN DEL LINK CORTO Y ESTÉTICO
-    // Cambia los espacios por un guion simple para que se vea limpio
-    const nombreFormateado = encodeURIComponent(nombre.replace(/\s+/g, '-'));
-    
-    // Obtiene el dominio actual eliminando 'admin.html' de la ruta
-    const urlLimpia = window.location.origin + window.location.pathname.replace('admin.html', '');
-    
-    // Construcción limpia: https://dominio.com/invitacion/?to=Nombre-Apellido
-    const linkFinal = `${urlLimpia}?to=${nombreFormateado}`;
+        <!-- TABLA DE CONTROL DE INVITADOS -->
+        <h2>Listado de Invitados Guardados</h2>
+        <table>
+            <thead>
+                <tr>
+                    <th>Nombre</th>
+                    <th>Pases asignados</th>
+                    <th>Tipo</th>
+                    <th>Estado</th>
+                    <th>Acciones</th>
+                </tr>
+            </thead>
+            <tbody id="tabla-invitados">
+                <!-- Se rellena dinámicamente -->
+            </tbody>
+        </table>
+    </div>
 
-    // Mostrar en pantalla
-    const contenedorResultado = document.getElementById('resultado-link');
-    contenedorResultado.style.display = 'block';
-    document.getElementById('link-generado').value = linkFinal;
+    <!-- TODO TU JAVASCRIPT CORRECTAMENTE ENCERRADO EN SU ETIQUETA -->
+    <script>
+        function generarInvitacion() {
+            const nombre = document.getElementById('input-nombre').value.trim();
+            const pases = document.getElementById('input-pases').value.trim();
+            const tipo = document.getElementById('select-tipo').value;
 
-    // Reset de inputs y refresco de tabla administrativa
-    document.getElementById('input-nombre').value = "";
-    document.getElementById('input-pases').value = "";
-    actualizarTabla();
-}
+            if (!nombre) {
+                alert("Por favor, introduce al menos el nombre del invitado principal.");
+                return;
+            }
+
+            const idUnico = 'id_' + Date.now();
+
+            const nuevoInvitado = {
+                id: idUnico,
+                nombre: nombre,
+                pases: pases,
+                tipo: tipo,
+                estado: 'enviado'
+            };
+
+            // Almacenamiento local
+            const dbInvitados = JSON.parse(localStorage.getItem('boda_invitados')) || [];
+            dbInvitados.push(nuevoInvitado);
+            localStorage.setItem('boda_invitados', JSON.stringify(dbInvitados));
+
+            // GENERACIÓN DEL LINK CORTO Y ESTÉTICO
+            // Cambia los espacios por un guion simple para que se vea limpio
+            const nombreFormateado = encodeURIComponent(nombre.replace(/\s+/g, '-'));
+            
+            // Obtiene el dominio actual eliminando 'admin.html' de la ruta
+            const urlLimpia = window.location.origin + window.location.pathname.replace('admin.html', '');
+            
+            // Construcción limpia: https://dominio.com/invitacion/?to=Nombre-Apellido
+            const linkFinal = `${urlLimpia}?to=${nombreFormateado}`;
+
+            // Mostrar en pantalla
+            const contenedorResultado = document.getElementById('resultado-link');
+            contenedorResultado.style.display = 'block';
+            document.getElementById('link-generado').value = linkFinal;
+
+            // Reset de inputs
+            document.getElementById('input-nombre').value = "";
+            document.getElementById('input-pases').value = "";
+            
+            actualizarTabla();
+        }
+
+        function actualizarTabla() {
+            const tbody = document.getElementById('tabla-invitados');
+            if (!tbody) return;
+            
+            tbody.innerHTML = "";
+            const dbInvitados = JSON.parse(localStorage.getItem('boda_invitados')) || [];
+
+            dbInvitados.forEach((inv, index) => {
+                const fila = document.createElement('tr');
+                
+                // Formatear badge de estado
+                const claseBadge = inv.estado === 'visto' ? 'badge-visto' : 'badge-enviado';
+                const textoEstado = inv.estado.toUpperCase();
+
+                fila.innerHTML = `
+                    <td><strong>${inv.nombre}</strong></td>
+                    <td>${inv.pases ? inv.pases : 'Solo pase principal'}</td>
+                    <td>${inv.tipo === 'afuera' ? '✈ Internacional' : '🏠 Local'}</td>
+                    <td><span class="badge ${claseBadge}">${textoEstado}</span></td>
+                    <td>
+                        <button class="btn-eliminar" onclick="eliminarInvitado(${index})">Eliminar</button>
+                    </td>
+                `;
+                tbody.appendChild(fila);
+            });
+        }
+
+        function eliminarInvitado(index) {
+            if (confirm("¿Estás seguro de que deseas eliminar este invitado del listado?")) {
+                const dbInvitados = JSON.parse(localStorage.getItem('boda_invitados')) || [];
+                dbInvitados.splice(index, 1);
+                localStorage.setItem('boda_invitados', JSON.stringify(dbInvitados));
+                actualizarTabla();
+            }
+        }
+
+        // Cargar los datos existentes al entrar al panel
+        document.addEventListener("DOMContentLoaded", () => {
+            actualizarTabla();
+        });
+    </script>
+</body>
+</html>
