@@ -19,6 +19,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const pantallaSobre = document.getElementById("pantalla-sobre");
     const contenidoInvitacion = document.getElementById("contenido-invitacion");
     const musica = document.getElementById("musica-boda");
+    const btnCalendario = document.querySelector(".btn-calendario");
 
     const fechaBoda = new Date("Jan 8, 2027 19:00:00").getTime();
     const fechaLimite = new Date("Jul 20, 2026 23:59:00").getTime();
@@ -94,13 +95,23 @@ document.addEventListener("DOMContentLoaded", () => {
         };
     }
 
+    // LÓGICA DEL BOTÓN CALENDARIO CORREGIDA
+    if (btnCalendario) {
+        btnCalendario.onclick = function(e) {
+            e.preventDefault();
+            // Enlace directo a Google Calendar con el evento configurado
+            const googleCalendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Dayana+%26+Exio&dates=20270108T190000/20270109T020000&details=¡Acompáñanos+a+celebrar+nuestra+boda!&location=Cúcuta,+Colombia&sf=true&output=xml";
+            window.open(googleCalendarUrl, '_blank');
+        };
+    }
+
     function lanzarLluviaPetalos() {
         const contenedor = document.getElementById("contenedor-petalos");
         if (!contenedor) return;
         for (let i = 0; i < 40; i++) {
             const petalo = document.createElement("div");
             petalo.classList.add("petalo");
-            petalo.style.width = `${Math.random() * 8 + 8}px`; // Ajuste estético de tamaño de hoja
+            petalo.style.width = `${Math.random() * 8 + 8}px`; 
             petalo.style.height = `${Math.random() * 14 + 12}px`;
             petalo.style.left = `${Math.random() * 100}vw`;
             petalo.style.animationDuration = `${Math.random() * 2 + 2.5}s`;
@@ -131,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Reloj Límite (Corregido con la variable exacta)
+        // Reloj Límite
         const contConfirmar = document.getElementById("contador-confirmacion");
         if (contConfirmar) {
             const difReal = fechaLimite - ahora;
