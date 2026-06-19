@@ -100,10 +100,10 @@ document.addEventListener("DOMContentLoaded", () => {
         for (let i = 0; i < 40; i++) {
             const petalo = document.createElement("div");
             petalo.classList.add("petalo");
-            petalo.style.width = `${Math.random() * 10 + 8}px`;
-            petalo.style.height = `${Math.random() * 12 + 10}px`;
+            petalo.style.width = `${Math.random() * 8 + 8}px`; // Ajuste estético de tamaño de hoja
+            petalo.style.height = `${Math.random() * 14 + 12}px`;
             petalo.style.left = `${Math.random() * 100}vw`;
-            petalo.style.animationDuration = `${Math.random() * 2 + 2}s`;
+            petalo.style.animationDuration = `${Math.random() * 2 + 2.5}s`;
             contenedor.appendChild(petalo);
         }
     }
@@ -131,10 +131,9 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Reloj Límite
+        // Reloj Límite (Corregido con la variable exacta)
         const contConfirmar = document.getElementById("contador-confirmacion");
         if (contConfirmar) {
-            const difLimite = fechaLimite - now; // Nota: En entornos de prueba usa 'ahora' si tira error de variable indefinida
             const difReal = fechaLimite - ahora;
             if (difReal < 0) {
                 contConfirmar.innerHTML = "<p style='color:#c62828; font-weight:bold;'>Confirmaciones cerradas</p>";
@@ -143,7 +142,7 @@ document.addEventListener("DOMContentLoaded", () => {
                 const h = Math.floor((difReal % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
                 const m = Math.floor((difReal % (1000 * 60 * 60)) / (1000 * 60));
                 const s = Math.floor((difReal % (1000 * 60)) / 1000);
-                contConfirmar.innerHTML = `<div class="contador-display semaforo-verde">
+                contConfirmar.innerHTML = `<div class="contador-display">
                     <div class="unidad-tiempo"><span class="numero">${d}</span><span class="etiqueta">Días</span></div>
                     <div class="unidad-tiempo"><span class="numero">${h}</span><span class="etiqueta">Horas</span></div>
                     <div class="unidad-tiempo"><span class="numero">${m}</span><span class="etiqueta">Min</span></div>
