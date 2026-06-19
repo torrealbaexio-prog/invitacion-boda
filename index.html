@@ -4,36 +4,30 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda - Dayana & Exio</title>
-    <link rel="stylesheet" href="style.css?v=3.0">
+    <link rel="stylesheet" href="style.css?v=5.0">
 </head>
 <body>
 
-    <!-- AUDIO DE FONDO -->
     <audio id="musica-boda" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- PANTALLA 1: EL SOBRE CON IMAGEN DE CANVA -->
     <div id="pantalla-sobre" class="pantalla-sobre">
         <div class="sobre-wrapper-imagen" id="sobre-clic">
-            <img src="sobre.jpeg" alt="Sobre de Invitación" class="imagen-sobre-canva">
+            <img src="sobre.jpg" alt="Sobre de Invitación" class="imagen-sobre-canva">
             <p class="instruccion">Toca el sobre para abrir tu invitación</p>
         </div>
     </div>
 
-    <!-- PANTALLA 2: CONTENIDO DE LA INVITACIÓN -->
     <div id="contenido-invitacion" class="contenido-oculto">
         <div class="marco-invitacion">
             
-            <!-- Contenedor dinámico para la lluvia de pétalos -->
             <div id="contenedor-petalos"></div>
 
-            <!-- FOTO PRINCIPAL -->
             <div class="contenedor-foto">
                 <img src="foto1.jpeg" alt="Dayana & Exio - Foto Principal" class="foto-boda">
             </div>
 
-            <!-- SECCIÓN: BIENVENIDA PERSONALIZADA -->
             <section class="seccion bienvenida">
                 <h2>Querido(a) <span id="nombre-invitado" style="font-weight: bold; color: #3d4e1e;">Invitado</span></h2>
                 <p>Hemos decidido unir nuestras vidas en matrimonio y nos llenaría de alegría contar con su compañía en este día tan especial.</p>
@@ -41,27 +35,23 @@
                 
                 <div class="lista-pases-contenedor">
                     <ul id="detalle-pases">
-                        <!-- Se inyecta dinámicamente con JavaScript -->
-                    </ul>
+                        </ul>
                 </div>
             </section>
 
             <hr>
 
-            <!-- SECCIÓN: CUENTA REGRESIVA BODA -->
             <section class="seccion cuenta-regresiva">
                 <h3>Tiempo restante para el gran día</h3>
                 <div id="contador-boda"></div>
             </section>
 
-            <!-- FOTO SECUNDARIA -->
             <div class="contenedor-foto">
                 <img src="foto2.jpeg" alt="Dayana & Exio - Cuenta Regresiva" class="foto-boda">
             </div>
 
             <hr>
 
-            <!-- SECCIÓN: DATOS GENERALES DEL EVENTO -->
             <section class="seccion datos-boda">
                 <h1 class="titulo-novios">Dayana & Exio</h1>
                 <p class="fecha-texto">8 de Enero de 2027</p>
@@ -72,14 +62,13 @@
                     <p><strong>Dirección:</strong> Av. Gran Colombia #6E-57</p>
                 </div>
                 <div class="botones-mapa">
-                    <a href="https://maps.app.goo.gl/eHX2nM8Q3NPbkQASA?g_st=aw" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
+                    <a href="https://maps.google.com/?q=La+Terraza+del+Portón+Cúcuta" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
                     <a href="https://waze.com/ul/hd3kkykug3" target="_blank" class="btn btn-waze">Ver en Waze</a>
                 </div>
             </section>
 
             <hr>
 
-            <!-- SECCIÓN: CÓDIGO DE VESTIMENTA -->
             <section class="seccion vestimenta">
                 <h3>Código de Vestimenta</h3>
                 <p>Nos encantará compartir este momento tan especial contigo. Te agradecemos asistir con vestimenta formal.</p>
@@ -90,7 +79,7 @@
                     </div>
                     <div class="bloque-vestimenta">
                         <h4>Damas</h4>
-                        <p>Vestido formal. Evitar escotes pronunciados y vestidos cortos (por encima de la rodilla).</p>
+                        <p>Vestido formal. Evitar escotes pronunciados y vestidos cortos.</p>
                         <p class="alerta-colores">Por favor, <strong>evitar</strong> los siguientes colores:</p>
                         <div class="colores-prohibidos">
                             <div class="item-color"><span class="circulo-color blanco"></span> Blanco</div>
@@ -103,11 +92,9 @@
 
             <hr>
 
-            <!-- SECCIÓN: CONFIRMACIÓN DE ASISTENCIA -->
             <section class="seccion confirmacion-seccion">
                 <h3>Confirmación de Asistencia</h3>
                 <p class="fecha-limite-texto">Fecha límite: 20 de julio de 2026 a las 11:59 PM</p>
-                <p class="titulo-conteo-limite">Tiempo límite restante para confirmar tu asistencia:</p>
                 <div id="contador-confirmacion"></div>
                 <br>
                 <a href="https://forms.gle/u5Eow8dtjPT1rmgE9" target="_blank" class="btn btn-confirmar" id="btn-presencial">Confirmar asistencia</a>
@@ -115,23 +102,21 @@
                 <button id="btn-calendario" class="btn btn-calendario">Agregar a mi calendario</button>
             </section>
 
-            <!-- SECCIÓN: ASISTENCIA VIRTUAL -->
             <div id="seccion-internacionales" style="display: none;">
                 <hr>
                 <section class="seccion internacionales">
                     <h3>Invitados Internacionales</h3>
-                    <p>Si te resulta imposible viajar, nos encantará que formes parte de este momento especial a través de nuestra transmisión privada.</p>
+                    <p>Si te resulta imposible viajar, nos encantará que formes parte de este momento a través de nuestra transmisión privada.</p>
                     <a href="https://forms.gle/fgs2Wmb2s4xNUL6p7" target="_blank" class="btn btn-virtual">Confirmar asistencia virtual</a>
                 </section>
             </div>
 
-            <!-- SECCIÓN: REGALOS Y DATOS BANCARIOS -->
             <div id="seccion-regalos" style="display: none;">
                 <hr>
                 <section class="seccion regalos">
                     <h3>"Tu regalo, nuestro inicio"</h3>
-                    <p>El mayor regalo para nosotros será contar con tu presencia en este día tan especial.</p>
-                    <p>Sin embargo, si deseas tener un detalle con nuestra nueva familia, hemos elegido la tradicional lluvia de sobres como una forma sencilla y significativa de apoyarnos.</p>
+                    <p>El mayor regalo será contar con tu presencia.</p>
+                    <p>Si deseas tener un detalle, hemos elegido la tradicional lluvia de sobres.</p>
                     
                     <div class="datos-bancarios">
                         <h4>Datos Bancarios</h4>
@@ -154,6 +139,6 @@
         </div>
     </div>
 
-    <script src="script.js?v=3.0"></script>
+    <script src="script.js?v=5.0"></script>
 </body>
 </html>
