@@ -1,0 +1,45 @@
+function generarInvitacion() {
+    const nombre = document.getElementById('input-nombre').value.trim();
+    const pases = document.getElementById('input-pases').value.trim();
+    const tipo = document.getElementById('select-tipo').value;
+
+    if (!nombre) {
+        alert("Por favor, introduce al menos el nombre del invitado principal.");
+        return;
+    }
+
+    const idUnico = 'id_' + Date.now();
+
+    const nuevoInvitado = {
+        id: idUnico,
+        nombre: nombre,
+        pases: pases,
+        tipo: tipo,
+        estado: 'enviado'
+    };
+
+    // Almacenamiento local
+    const dbInvitados = JSON.parse(localStorage.getItem('boda_invitados')) || [];
+    dbInvitados.push(nuevoInvitado);
+    localStorage.setItem('boda_invitados', JSON.stringify(dbInvitados));
+
+    // GENERACIÓN DEL LINK CORTO Y ESTÉTICO
+    // Cambia los espacios por un guion simple para que se vea limpio
+    const nombreFormateado = encodeURIComponent(nombre.replace(/\s+/g, '-'));
+    
+    // Obtiene el dominio actual eliminando 'admin.html' de la ruta
+    const urlLimpia = window.location.origin + window.location.pathname.replace('admin.html', '');
+    
+    // Construcción limpia: https://dominio.com/invitacion/?to=Nombre-Apellido
+    const linkFinal = `${urlLimpia}?to=${nombreFormateado}`;
+
+    // Mostrar en pantalla
+    const contenedorResultado = document.getElementById('resultado-link');
+    contenedorResultado.style.display = 'block';
+    document.getElementById('link-generado').value = linkFinal;
+
+    // Reset de inputs y refresco de tabla administrativa
+    document.getElementById('input-nombre').value = "";
+    document.getElementById('input-pases').value = "";
+    actualizarTabla();
+}
