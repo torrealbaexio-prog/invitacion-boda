@@ -4,13 +4,9 @@ window.copiarDatoBancario = function(idElemento, boton) {
     const textoACopiar = contenedorDato.innerText;
     
     navigator.clipboard.writeText(textoACopiar).then(() => {
-        const textoOriginal = boton.innerText;
+        const textOrig = boton.innerText;
         boton.innerText = "¡Copiado! ✓";
-        boton.classList.add("copiado");
-        setTimeout(() => {
-            boton.innerText = textoOriginal;
-            boton.classList.remove("copiado");
-        }, 2000);
+        setTimeout(() => { boton.innerText = textOrig; }, 2000);
     }).catch(err => console.error("Error al copiar: ", err));
 };
 
@@ -19,9 +15,8 @@ document.addEventListener("DOMContentLoaded", () => {
     const pantallaSobre = document.getElementById("pantalla-sobre");
     const contenidoInvitacion = document.getElementById("contenido-invitacion");
     const musica = document.getElementById("musica-boda");
-    const btnCalendario = document.querySelector(".btn-calendario");
+    const btnCalendario = document.querySelector(".btn-calendario-principal");
 
-    // Fecha del gran evento
     const fechaBoda = new Date("Jan 8, 2027 19:00:00").getTime();
     const fechaLimite = new Date("Jul 20, 2026 23:59:00").getTime();
 
@@ -30,7 +25,7 @@ document.addEventListener("DOMContentLoaded", () => {
 
     let nombreInvitado = "Invitado Especial";
     let pasesInvitado = "";
-    let tipoInvitado = "local";
+    let tipoInvitado = "local"; // Por defecto 'local' (Cúcuta)
 
     if (aliasInvitado) {
         try {
@@ -55,7 +50,6 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Insertar el nombre del invitado de forma limpia
     const itemNombre = document.getElementById('nombre-invitado');
     if (itemNombre) itemNombre.innerText = nombreInvitado;
     
@@ -77,15 +71,23 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    // Gestionar bloques dinámicos según procedencia
+    // GESTIÓN DINÁMICA POR PROCEDENCIA (Locales vs Afuera)
     const divInternacionales = document.getElementById('seccion-internacionales');
-    const divRegalos = document.getElementById('seccion-regalos');
+    const divRegalosBancarios = document.getElementById('seccion-regalos');
+    const parrafoLocal = document.getElementById('regalo-local');
+    const parrafoAfuera = document.getElementById('regalo-afuera');
+
     if (tipoInvitado === 'afuera') {
         if (divInternacionales) divInternacionales.style.display = 'block';
-        if (divRegalos) divRegalos.style.display = 'block';
+        if (divRegalosBancarios) divRegalosBancarios.style.display = 'block';
+        if (parrafoAfuera) parrafoAfuera.style.display = 'block';
+        if (parrafoLocal) parrafoLocal.style.display = 'none';
     } else {
+        // Invitados de Cúcuta (Locales)
         if (divInternacionales) divInternacionales.style.display = 'none';
-        if (divRegalos) divRegalos.style.display = 'none';
+        if (divRegalosBancarios) divRegalosBancarios.style.display = 'none';
+        if (parrafoAfuera) parrafoAfuera.style.display = 'none';
+        if (parrafoLocal) parrafoLocal.style.display = 'block';
     }
 
     if (sobreClic) {
@@ -93,7 +95,7 @@ document.addEventListener("DOMContentLoaded", () => {
             if (pantallaSobre) pantallaSobre.classList.add("sobre-desvanecido");
             if (contenidoInvitacion) contenidoInvitacion.classList.add("mostrar-contenido");
             if (musica) {
-                musica.play().catch(() => console.log("Permiso de reproducción pendiente"));
+                musica.play().catch(() => console.log("Permiso de audio requerido"));
             }
             lanzarLluviaPetalos();
         };
@@ -102,7 +104,7 @@ document.addEventListener("DOMContentLoaded", () => {
     if (btnCalendario) {
         btnCalendario.onclick = function(e) {
             e.preventDefault();
-            const googleCalendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Dayana+Garz%C3%B3n+%26+Exio+Torrealba&dates=20270108T190000/20270109T020000&details=%C2%A1Acomp%C3%A1%C3%B1anos+a+celebrar+nuestra+boda%21&location=C%C3%BAcuta,+Colombia&sf=true&output=xml";
+            const googleCalendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Dayana+Garz%C3%B3n+%26+Exio+Torrealba&dates=20270108T190000/20270109T020000&details=%C2%A1Acomp%C3%A1%C3%B1anos+a+celebrar+nuestra+boda%21&location=Restaurante+Tramonti,+Bogot%C3%A1&sf=true&output=xml";
             window.open(googleCalendarUrl, '_blank');
         };
     }
@@ -110,13 +112,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function lanzarLluviaPetalos() {
         const contenedor = document.getElementById("contenedor-petalos");
         if (!contenedor) return;
-        for (let i = 0; i < 35; i++) {
+        for (let i = 0; i < 25; i++) {
             const petalo = document.createElement("div");
             petalo.classList.add("petalo");
-            petalo.style.width = `${Math.random() * 6 + 8}px`; 
-            petalo.style.height = `${Math.random() * 12 + 12}px`;
+            petalo.style.width = `${Math.random() * 5 + 8}px`; 
+            petalo.style.height = `${Math.random() * 10 + 12}px`;
             petalo.style.left = `${Math.random() * 100}vw`;
-            petalo.style.animationDuration = `${Math.random() * 2 + 3}s`;
+            petalo.style.animationDuration = `${Math.random() * 2 + 4}s`;
             contenedor.appendChild(petalo);
         }
     }
@@ -124,7 +126,6 @@ document.addEventListener("DOMContentLoaded", () => {
     function actualizarContadores() {
         const ahora = new Date().getTime();
 
-        // Reloj de la celebración
         const contBoda = document.getElementById("contador-boda");
         if (contBoda) {
             const difBoda = fechaBoda - ahora;
@@ -144,7 +145,6 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Reloj límite de confirmación
         const contConfirmar = document.getElementById("contador-confirmacion");
         if (contConfirmar) {
             const difReal = fechaLimite - ahora;

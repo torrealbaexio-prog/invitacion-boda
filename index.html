@@ -4,7 +4,6 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda - Dayana & Exio</title>
-    <!-- Importación de fuentes elegantes desde Google Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
@@ -12,43 +11,33 @@
 </head>
 <body>
 
-    <!-- REPRODUCTOR DE AUDIO OCULTO -->
     <audio id="musica-boda" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- PANTALLA 1: EL SOBRE INICIAL -->
     <div id="pantalla-sobre" class="pantalla-sobre">
         <div class="sobre-wrapper-imagen" id="sobre-clic">
-            <img src="sobre.jpeg" alt="Sobre de Invitación" class="imagen-sobre-canva">
+            <img src="sobre.jpg" alt="Sobre de Invitación" class="imagen-sobre-canva">
             <p class="instruccion">TOCA EL SOBRE PARA ABRIR</p>
         </div>
     </div>
 
-    <!-- PANTALLA 2: CONTENIDO DE LA INVITACIÓN -->
     <div id="contenido-invitacion" class="contenido-oculto">
         <div class="marco-invitacion">
-            <!-- Contenedor para el efecto de hojas de olivo -->
             <div id="contenedor-petalos"></div>
 
-            <!-- BLOQUE CABECERA (Verde Oliva Medio) -->
             <div class="bloque-seccion bloque-oscuro">
                 <div class="contenedor-foto">
-                    <!-- Tu foto con Dayana se mantiene aquí -->
-                    <img src="boda.jpeg" alt="Dayana y Exio" class="foto-boda">
+                    <img src="foto1.jpeg" alt="Dayana y Exio - Foto Principal" class="foto-boda">
                 </div>
-                <!-- Nombres Completos con Fuente Cursiva Elegante -->
                 <h1 class="nombres-novios">Dayana Garzón</h1>
                 <div class="ampersand">&</div>
                 <h1 class="nombres-novios">Exio Torrealba</h1>
             </div>
 
-            <!-- LÍNEA DIVISORIA DORADA -->
             <div class="divisor-dorado"></div>
 
-            <!-- BLOQUE BIENVENIDA (Verde Oliva Claro) -->
             <div class="bloque-seccion bloque-claro">
-                <!-- Nombre Dinámico del Invitado -->
                 <h2 id="nombre-invitado" class="texto-invitado">Invitado Especial</h2>
                 
                 <p class="versiculo">
@@ -57,61 +46,70 @@
                     <span class="cita-versiculo">Eclesiastés 4,12</span>
                 </p>
 
-                <!-- Detalle Ilustrado de Palomas y Anillos de la Referencia -->
-                <div class="ilustracion-boda">
-                    <div class="palomas-flores">🕊️🌸✨🌸🕊️</div>
-                    <div class="anillos-alianza">💍💍</div>
+                <div class="ilustracion-boda-svg">
+                    <svg viewBox="0 0 100 50" class="svg-boda">
+                        <path d="M10,40 Q50,55 90,40" fill="none" stroke="#baa06a" stroke-width="1" stroke-dasharray="2,2"/>
+                        <path d="M25,43 Q50,48 75,43" fill="none" stroke="#baa06a" stroke-width="0.8"/>
+                        <circle cx="46" cy="40" r="7" fill="none" stroke="#dab569" stroke-width="2" />
+                        <circle cx="54" cy="40" r="7" fill="none" stroke="#bfa054" stroke-width="2" />
+                        <circle cx="50" cy="34" r="2" fill="#fff" stroke="#baa06a" stroke-width="0.5"/>
+                        <circle cx="43" cy="46" r="1.5" fill="#fff" stroke="#baa06a" stroke-width="0.5"/>
+                        <circle cx="57" cy="46" r="1.5" fill="#fff" stroke="#baa06a" stroke-width="0.5"/>
+                    </svg>
                 </div>
                 
                 <p class="introduccion-texto">
                     Hemos decidido unir nuestras vidas en matrimonio y nos llenaría de alegría contar con su compañía en este día tan especial. Con mucho cariño, queremos invitar a las siguientes personas de su familia:
                 </p>
 
-                <!-- Pases Asignados -->
                 <div class="lista-pases-contenedor">
                     <ul id="detalle-pases">
-                        <!-- Cargados dinámicamente -->
-                    </ul>
+                        </ul>
                 </div>
             </div>
 
             <div class="divisor-dorado"></div>
 
-            <!-- BLOQUE CUENTA REGRESIVA (Verde Oliva Medio) -->
             <div class="bloque-seccion bloque-oscuro">
                 <h3 class="subtitulo-elegante">SAVE THE DATE</h3>
                 <h4 class="fecha-texto">Enero 8, 2027</h4>
-                <p style="color: white; font-style: italic; margin-bottom: 5px;">Solo faltan:</p>
+                <p style="color: white; font-style: italic; margin-bottom: 5px; font-size: 0.9rem;">Solo faltan:</p>
                 <div id="contador-boda"></div>
-                <button class="btn btn-calendario">AGENDAR EN CALENDARIO</button>
             </div>
 
             <div class="divisor-dorado"></div>
 
-            <!-- BLOQUE RECEPCIÓN Y MAPAS (Verde Oliva Claro) -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante cursivo">Recepción</h3>
-                <p><strong>Hora:</strong> 7:00 pm</p>
-                <p><strong>Lugar:</strong> Salón de Eventos Espectacular</p>
+                <p class="datos-lugar"><strong>Hora:</strong> 7:00 pm</p>
+                <p class="datos-lugar"><strong>Lugar:</strong> Restaurante Tramonti</p>
+                <p class="datos-lugar"><strong>Dirección:</strong> Cra. 1 Este #106-20</p>
+                <p class="datos-lugar-ciudad">Bogotá, Colombia</p>
                 
                 <div class="botones-locales">
-                    <a href="https://maps.google.com" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
-                    <a href="https://waze.com" target="_blank" class="btn btn-waze">Ver en Waze</a>
+                    <a href="https://maps.app.goo.gl/YVpUu6mU8LwA9VfG8" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
+                    <a href="https://waze.com/ul?ll=4.6868,-74.0294&navigate=yes" target="_blank" class="btn btn-waze">Ver en Waze</a>
                 </div>
             </div>
 
             <div class="divisor-dorado"></div>
 
-            <!-- BLOQUE DRESS CODE EXIGENTE (Verde Oliva Claro) -->
+            <div class="bloque-seccion bloque-oscuro">
+                <div class="contenedor-foto">
+                    <img src="foto2.jpeg" alt="Dayana y Exio - Foto Secundaria" class="foto-boda">
+                </div>
+                <p style="font-style: italic; font-size: 1.1rem; margin: 0; font-family: 'Playfair Display', serif;">"Por encima de todo, vístanse de amor, que es el vínculo perfecto."</p>
+            </div>
+
+            <div class="divisor-dorado"></div>
+
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante">DRESS CODE</h3>
-                
                 <div class="detalles-vestimenta">
                     <div class="genero-code">
                         <p class="titulo-genero">Hombres:</p>
                         <p class="descripcion-genero">Traje formal para hombre.</p>
                     </div>
-                    
                     <div class="genero-code">
                         <p class="titulo-genero">Mujeres:</p>
                         <p class="descripcion-genero">Vestido largo formal, sin escotes pronunciados ni tiras.</p>
@@ -126,7 +124,6 @@
                 </div>
             </div>
 
-            <!-- BLOQUE DINÁMICO INTERNACIONALES (SÓLO SI CORRESPONDE) -->
             <div id="seccion-internacionales" style="display: none;">
                 <div class="divisor-dorado"></div>
                 <div class="bloque-seccion bloque-claro">
@@ -138,12 +135,17 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- BLOQUE REGALOS / LLUVIA DE SOBRES -->
             <div class="bloque-seccion bloque-oscuro">
                 <h3 class="subtitulo-elegante">LLUVIA DE SOBRES</h3>
-                <p style="color: #fff;">Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento o puedes realizar una transferencia:</p>
                 
-                <!-- Sección de regalos oculta para locales, visible para extranjeros mediante script -->
+                <p id="regalo-local" style="color: #fff; font-size: 0.95rem; line-height: 1.6; display: none;">
+                    Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento para que deposites tu sobre.
+                </p>
+
+                <p id="regalo-afuera" style="color: #fff; font-size: 0.95rem; line-height: 1.6; display: none;">
+                    Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento o puedes realizar una transferencia bancaria:
+                </p>
+                
                 <div id="seccion-regalos" class="datos-bancarios" style="display: none;">
                     <div class="campo-copia">
                         <div>
@@ -157,15 +159,14 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- BLOQUE CONFIRMACIÓN (Verde Oliva Claro) -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante cursivo">Confirmar Asistencia</h3>
-                <p>Queremos preparar todos los detalles, déjanos saber si contaremos con tu valiosa compañía antes del 20 de Julio de 2026.</p>
+                <p style="font-size: 0.95rem; margin-bottom: 20px;">Queremos preparar todos los detalles, déjanos saber si contaremos con tu valiosa compañía antes del 20 de Julio de 2026.</p>
                 <div id="contador-confirmacion"></div>
                 
-                <div class="botones-confirmar">
-                    <a href="https://wa.me/tu_numero_exio" target="_blank" class="btn btn-confirmar">CONFIRMACIÓN CON EL NOVIO</a>
-                    <a href="https://wa.me/tu_numero_dayana" target="_blank" class="btn btn-confirmar">CONFIRMACIÓN CON LA NOVIA</a>
+                <div class="botones-confirmar-unificados">
+                    <a href="URL_DE_VUESTRO_GOOGLE_FORMS" target="_blank" class="btn btn-confirmar-principal">CONFIRMAR ASISTENCIA</a>
+                    <button class="btn btn-calendario-principal">AGENDAR EN CALENDARIO</button>
                 </div>
 
                 <p class="agradecimiento-final">¡Te esperamos!</p>

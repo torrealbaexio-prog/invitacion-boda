@@ -1,14 +1,14 @@
-/* PALETA DE COLORES E INYECCIÓN DE FUENTES */
 body {
     font-family: 'Poppins', sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #d4dcce; /* Fondo exterior verde oliva muy claro y suave */
+    background-color: #cb351f00; /* Evita parpadeos de fondo */
+    background: #d4dcce; 
     color: #2c351f;
     overflow-x: hidden;
 }
 
-/* SOBRE INICIAL */
+/* SCREEN 1: EL SOBRE INICIAL */
 .pantalla-sobre {
     position: fixed;
     top: 0;
@@ -20,31 +20,31 @@ body {
     justify-content: center;
     align-items: center;
     z-index: 9999;
-    transition: opacity 1s ease, visibility 1s ease;
+    transition: opacity 0.8s ease, visibility 0.8s ease;
 }
 
 .sobre-wrapper-imagen {
     text-align: center;
     cursor: pointer;
     max-width: 90%;
-    width: 420px;
+    width: 400px;
 }
 
 .imagen-sobre-canva {
     width: 100%;
+    max-width: 400px;
     height: auto;
-    border-radius: 4px;
-    box-shadow: 0 10px 30px rgba(44, 53, 31, 0.2);
-    transition: transform 0.4s ease;
-}
-
-.imagen-sobre-canva:hover {
-    transform: scale(1.02);
+    min-height: 250px; /* Asegura espacio visual mientras carga el archivo */
+    display: block;
+    margin: 0 auto;
+    border-radius: 6px;
+    box-shadow: 0 12px 35px rgba(44, 53, 31, 0.25);
+    background-color: #f4f6f2; /* Color de respaldo elegante si la imagen tarda */
 }
 
 .instruccion {
     margin-top: 15px;
-    font-size: 0.9rem;
+    font-size: 0.85rem;
     color: #4a5d24;
     font-weight: bold;
     letter-spacing: 2px;
@@ -57,14 +57,14 @@ body {
     pointer-events: none;
 }
 
-/* CONTENEDOR PRINCIPAL DE LA INVITACIÓN */
+/* SCREEN 2: CONTENIDO PRINCIPAL DE LA INVITACIÓN */
 .contenido-oculto {
     opacity: 0;
-    transform: translateY(20px);
-    transition: opacity 1.2s ease 0.2s, transform 1.2s ease 0.2s;
-    max-width: 500px;
+    transform: translateY(15px);
+    transition: opacity 1s ease 0.1s, transform 1s ease 0.1s;
+    max-width: 480px;
     margin: 0 auto;
-    padding: 15px;
+    padding: 20px 10px;
     box-sizing: border-box;
 }
 
@@ -74,67 +74,66 @@ body {
 }
 
 .marco-invitacion {
-    background-color: #e2e9dc; /* Estructura verde oliva claro de fondo continuo */
-    border-radius: 4px;
-    box-shadow: 0 6px 25px rgba(0,0,0,0.08);
+    background-color: #e2e9dc;
+    border-radius: 8px;
+    box-shadow: 0 8px 30px rgba(0,0,0,0.06);
     overflow: hidden;
     position: relative;
 }
 
-/* BLOQUES DE SECCIONES INTERCALADOS (COMO LA REFERENCIA) */
+/* SECCIONES EN BLOQUES */
 .bloque-seccion {
-    padding: 35px 25px;
+    padding: 40px 25px;
     text-align: center;
     box-sizing: border-box;
 }
 
 .bloque-oscuro {
-    background-color: #7d8f69; /* Verde Oliva Medio/Seco */
+    background-color: #7d8f69; /* Verde Oliva Seco */
     color: #ffffff;
 }
 
 .bloque-claro {
-    background-color: #e2e9dc; /* Verde Oliva Claro / Menta Suave */
+    background-color: #e2e9dc; /* Verde Oliva Claro */
     color: #38422a;
 }
 
-/* REPLICA DIVISORA DORADA DE LA IMAGEN DE REFERENCIA */
 .divisor-dorado {
     height: 3px;
     background: linear-gradient(90deg, rgba(187,148,65,0) 0%, rgba(218,181,105,1) 50%, rgba(187,148,65,0) 100%);
     width: 100%;
 }
 
-/* TIPOGRAFÍAS ELEGANTES MEJORADAS */
+/* TIPOGRAFÍAS Y DISEÑO DE TEXTO */
 .nombres-novios {
     font-family: 'Parisienne', cursive;
-    font-size: 3.4rem;
-    margin: 5px 0;
+    font-size: 3.5rem;
+    margin: 0;
     font-weight: 400;
     color: #ffffff;
-    text-shadow: 1px 1px 3px rgba(0,0,0,0.15);
+    line-height: 1.1;
 }
 
 .ampersand {
-    font-family: 'Playfair Display', Georgia, serif;
-    font-size: 2.2rem;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
     font-style: italic;
-    opacity: 0.9;
-    color: #dab569; /* Toque dorado para el ampersand */
+    color: #dab569;
+    margin: 8px 0;
 }
 
 .subtitulo-elegante {
     font-family: 'Playfair Display', serif;
-    font-size: 1.8rem;
+    font-size: 1.6rem;
     letter-spacing: 2px;
     margin-top: 0;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     font-weight: 600;
 }
 
 .subtitulo-elegante.cursivo {
     font-family: 'Parisienne', cursive;
-    font-size: 2.8rem;
+    font-size: 3rem;
     font-weight: 400;
     letter-spacing: 0;
 }
@@ -142,45 +141,70 @@ body {
 .texto-invitado {
     font-family: 'Playfair Display', serif;
     font-size: 1.5rem;
-    color: #556b2f;
-    margin-bottom: 20px;
+    color: #4a5d24;
+    margin-top: 0;
+    margin-bottom: 25px;
 }
 
 .versiculo {
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 1rem;
+    font-size: 0.95rem;
     line-height: 1.6;
-    max-width: 90%;
-    margin: 0 auto 20px auto;
+    margin-bottom: 25px;
 }
 
 .cita-versiculo {
     display: block;
-    font-size: 0.85rem;
+    font-size: 0.8rem;
     font-weight: 600;
-    margin-top: 5px;
+    margin-top: 8px;
     letter-spacing: 1px;
 }
 
-/* ILUSTRACIÓN DE REFERENCIA (PALOMAS Y ANILLOS) */
-.ilustracion-boda {
-    margin: 20px 0;
-    font-size: 1.4rem;
-    opacity: 0.85;
+/* DISEÑO DE ILUSTRACIÓN REALISTA SVG */
+.ilustracion-boda-svg {
+    max-width: 160px;
+    margin: 0 auto 25px auto;
 }
-.anillos-alianza {
-    font-size: 1.8rem;
-    margin-top: 5px;
+.svg-boda {
+    width: 100%;
+    height: auto;
 }
 
-/* FOTO */
+/* RECUADRO DE PASES E INVITADOS */
+.lista-pases-contenedor {
+    background-color: rgba(255, 255, 255, 0.45);
+    border: 1px dashed #7d8f69;
+    padding: 15px;
+    border-radius: 6px;
+    margin: 25px auto 0 auto;
+    max-width: 85%;
+}
+.lista-pases-contenedor ul { list-style: none; padding: 0; margin: 0; }
+.lista-pases-contenedor li { font-size: 1rem; font-weight: bold; color: #2c351f; }
+
+/* SECCIÓN LUGAR Y DIRECCIÓN */
+.datos-lugar {
+    margin: 6px 0;
+    font-size: 1rem;
+}
+.datos-lugar-ciudad {
+    margin: 4px 0 20px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #607345;
+}
+
+/* FOTOGRAFÍA PRINCIPAL */
 .contenedor-foto {
     width: 100%;
-    border-radius: 4px;
+    border-radius: 6px;
     overflow: hidden;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.15);
     margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
 }
 .foto-boda {
     width: 100%;
@@ -188,150 +212,116 @@ body {
     display: block;
 }
 
-/* PASES ASIGNADOS */
-.lista-pases-contenedor {
-    background-color: rgba(255, 255, 255, 0.4);
-    border: 1px dashed #7d8f69;
-    padding: 12px;
-    border-radius: 4px;
-    margin: 20px auto;
-    max-width: 85%;
-}
-.lista-pases-contenedor ul { list-style: none; padding: 0; margin: 0; }
-.lista-pases-contenedor li { font-size: 1.05rem; font-weight: bold; color: #38422a; }
-
-/* CONTADORES ESTILO REFERENCIA */
+/* DISEÑO DE CONTADORES */
 .contador-display {
     display: flex;
     justify-content: center;
-    gap: 10px;
-    margin: 15px 0;
+    gap: 8px;
+    margin: 20px 0;
 }
 .unidad-tiempo {
-    background-color: rgba(255, 255, 255, 0.15);
-    border: 1px solid rgba(255, 255, 255, 0.3);
-    color: white;
-    padding: 8px;
-    border-radius: 4px;
-    min-width: 60px;
+    background-color: rgba(255, 255, 255, 0.12);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    color: white; /* Color base para bloques oscuros */
+    padding: 10px;
+    border-radius: 6px;
+    min-width: 65px;
 }
-.unidad-tiempo .numero { display: block; font-size: 1.4rem; font-weight: bold; }
-.unidad-tiempo .etiqueta { font-size: 0.65rem; text-transform: uppercase; opacity: 0.8; }
+.unidad-tiempo .numero { 
+    display: block; 
+    font-size: 1.5rem; 
+    font-weight: bold; 
+    font-family: 'Playfair Display', serif; 
+}
+.unidad-tiempo .etiqueta { 
+    font-size: 0.6rem; 
+    text-transform: uppercase; 
+    opacity: 0.8; 
+    letter-spacing: 0.5px; 
+}
 
-/* BOTONES INTEGRADOS Y ADAPTADOS A LA NUEVA ESTÉTICA */
+/* Solución de contraste para el contador en fondos claros (como el de la imagen image_cee8e8.png) */
+.bloque-claro .unidad-tiempo {
+    background-color: rgba(125, 143, 105, 0.15); /* Fondo oliva suave traslúcido */
+    border: 1px solid rgba(125, 143, 105, 0.3);  /* Borde oliva definido */
+    color: #38422a; /* Texto oliva oscuro de alto contraste */
+}
+.bloque-claro .unidad-tiempo .etiqueta {
+    color: #607345; /* Etiqueta en un tono verde intermedio legible */
+    opacity: 1;
+}
+
+/* ELEMENTOS BOTÓN */
 .btn {
     display: inline-block;
-    padding: 11px 20px;
-    margin: 6px 0;
-    border-radius: 4px;
+    padding: 12px 20px;
+    margin: 8px 0;
+    border-radius: 5px;
     text-decoration: none;
     font-weight: bold;
     font-size: 0.85rem;
     letter-spacing: 1px;
-    transition: all 0.3s;
+    transition: all 0.3s ease;
     cursor: pointer;
-    border: 2px solid #ffffff; /* Borde blanco de los botones de la referencia */
     box-sizing: border-box;
     width: 90%;
-    max-width: 280px;
+    max-width: 290px;
     font-family: 'Poppins', sans-serif;
     text-transform: uppercase;
 }
 
-.btn:hover {
-    transform: translateY(-1px);
-    box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-}
+.btn-maps { background-color: #baa06a; color: white; border: 1px solid #ffffff; }
+.btn-waze { background-color: #a88f58; color: white; border: 1px solid #ffffff; }
 
-/* Ajustes de color para que combinen con el ocre dorado de los botones de referencia */
-.btn-maps { background-color: #baa06a; color: white; }
-.btn-waze { background-color: #a88f58; color: white; }
-.btn-confirmar { background-color: #baa06a; color: white; }
-.btn-virtual { background-color: #baa06a; color: white; }
-.btn-calendario { background-color: transparent; color: white; border: 2px solid white; }
-
-/* DRESS CODE */
-.detalles-vestimenta {
-    margin: 20px 0;
-}
-.genero-code {
-    margin-bottom: 15px;
-}
-.titulo-genero {
-    font-weight: 600;
-    font-size: 1.1rem;
-    margin: 0;
-    color: #4a5d24;
-}
-.descripcion-genero {
-    margin: 3px 0 0 0;
-    font-size: 0.95rem;
-}
-.aviso-colores {
-    font-size: 0.85rem;
-    font-style: italic;
-    max-width: 90%;
-    margin: 20px auto 10px auto;
-}
-.colores-prohibidos {
+/* BOTONES DE ASISTENCIA REESTRUCTURADOS */
+.botones-confirmar-unificados {
+    margin-top: 20px;
     display: flex;
-    justify-content: center;
-    gap: 15px;
+    flex-direction: column;
+    align-items: center;
 }
-.item-color { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; font-weight: 600; }
-.circulo-color { width: 16px; height: 16px; border-radius: 50%; border: 1px solid #aaa; display: inline-block; }
+.btn-confirmar-principal {
+    background-color: #baa06a;
+    color: white;
+    border: 1px solid #ffffff;
+}
+.btn-calendario-principal {
+    background-color: #7d8f69;
+    color: white;
+    border: 1px solid #ffffff;
+}
+
+.btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.12);
+}
+
+/* CÓDIGO DE VESTIMENTA */
+.detalles-vestimenta { margin: 25px 0; }
+.genero-code { margin-bottom: 20px; }
+.titulo-genero { font-weight: 600; font-size: 1.1rem; margin: 0; color: #4a5d24; }
+.descripcion-genero { margin: 4px 0 0 0; font-size: 0.95rem; }
+.aviso-colores { font-size: 0.85rem; font-style: italic; max-width: 85%; margin: 25px auto 12px auto; }
+.colores-prohibidos { display: flex; justify-content: center; gap: 20px; }
+.item-color { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; }
+.circulo-color { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #bbb; display: inline-block; }
 .circulo-color.blanco { background-color: #ffffff; }
 .circulo-color.verde { background-color: #7d8f69; }
 .circulo-color.gris { background-color: #9e9e9e; }
 
-/* DATOS BANCARIOS (VISIBLE EXTRANJEROS) */
-.datos-bancarios {
-    background-color: rgba(255,255,255,0.1);
-    padding: 15px;
-    border-radius: 4px;
-    border: 1px solid rgba(255,255,255,0.2);
-    margin-top: 15px;
-    text-align: left;
-}
-.campo-copia { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.2); padding: 10px; border-radius: 4px; }
+/* COMPONENTES BANCO / REGALOS */
+.datos-bancarios { background-color: rgba(255,255,255,0.08); padding: 15px; border-radius: 6px; border: 1px solid rgba(255,255,255,0.15); margin-top: 20px; text-align: left; }
+.campo-copia { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.15); padding: 12px; border-radius: 5px; }
 .campo-copia p { margin: 0; font-size: 0.85rem; color: #fff; }
 .etiqueta-banco { font-size: 0.75rem; color: #dab569; font-weight: bold; }
-.btn-copiar-dato { background-color: #baa06a; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold; }
+.btn-copiar-dato { background-color: #baa06a; color: white; border: none; padding: 7px 14px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold; }
 
-/* EFECTO DE HOJAS DE OLIVO */
-#contenedor-petalos {
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    pointer-events: none;
-    overflow: hidden;
-    z-index: 10;
-}
-.petalo {
-    position: absolute;
-    background-color: rgba(125, 143, 105, 0.6); 
-    border-radius: 100% 0% 100% 0%; 
-    animation: caer linear forwards;
-}
+/* ANIMACIÓN LLUVIA DE PÉTALOS/HOJAS */
+#contenedor-petalos { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 10; }
+.petalo { position: absolute; background-color: rgba(125, 143, 105, 0.45); border-radius: 100% 0% 100% 0%; animation: caer linear forwards; }
 
-.agradecimiento-final {
-    font-family: 'Parisienne', cursive;
-    font-size: 2.6rem;
-    color: #4a5d24;
-    margin-top: 25px;
-    margin-bottom: 0;
-}
+.agradecimiento-final { font-family: 'Parisienne', cursive; font-size: 3rem; color: #4a5d24; margin-top: 30px; margin-bottom: 0; }
 
-@keyframes palpitar {
-    0% { transform: scale(1); opacity: 0.8; }
-    50% { transform: scale(1.02); opacity: 1; }
-    100% { transform: scale(1); opacity: 0.8; }
-}
-@keyframes caer {
-    0% { transform: translateY(-20px) rotate(0deg) translateX(0px); opacity: 0; }
-    10% { opacity: 0.7; }
-    90% { opacity: 0.7; }
-    100% { transform: translateY(100vh) rotate(540deg) translateX(30px); opacity: 0; }
-}
+/* ANIMACIONES KEYFRAMES */
+@keyframes palpitar { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.03); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }
+@keyframes caer { 0% { transform: translateY(-20px) rotate(0deg) translateX(0px); opacity: 0; } 10% { opacity: 0.6; } 90% { opacity: 0.6; } 100% { transform: translateY(100vh) rotate(360deg) translateX(25px); opacity: 0; } }
