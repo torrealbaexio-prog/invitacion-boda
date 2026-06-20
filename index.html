@@ -11,10 +11,12 @@
 </head>
 <body>
 
+    <!-- REPRODUCTOR DE AUDIO OCULTO -->
     <audio id="musica-boda" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- PANTALLA 1: EL SOBRE INICIAL -->
     <div id="pantalla-sobre" class="pantalla-sobre">
         <div class="sobre-wrapper-imagen" id="sobre-clic">
             <img src="sobre.jpg" alt="Sobre de Invitación" class="imagen-sobre-canva">
@@ -22,10 +24,12 @@
         </div>
     </div>
 
+    <!-- PANTALLA 2: CONTENIDO DE LA INVITACIÓN -->
     <div id="contenido-invitacion" class="contenido-oculto">
         <div class="marco-invitacion">
             <div id="contenedor-petalos"></div>
 
+            <!-- BLOQUE CABECERA con FOTO 1 -->
             <div class="bloque-seccion bloque-oscuro">
                 <div class="contenedor-foto">
                     <img src="foto1.jpeg" alt="Dayana y Exio - Foto Principal" class="foto-boda">
@@ -37,15 +41,16 @@
 
             <div class="divisor-dorado"></div>
 
+            <!-- BLOQUE BIENVENIDA -->
             <div class="bloque-seccion bloque-claro">
                 <h2 id="nombre-invitado" class="texto-invitado">Invitado Especial</h2>
                 
                 <p class="versiculo">
-                    "Uno solo puede ser vencido, pero dos pueden resistir.<br>
-                    La cuerda de tres hilos no se rompe fácilmente."<br>
+                    "Si alguno prevalece contra el que está solo, dos estarán contra él, pues cordón de tres dobleces no se rompe pronto."<br>
                     <span class="cita-versiculo">Eclesiastés 4,12</span>
                 </p>
 
+                <!-- Gráfico premium SVG -->
                 <div class="ilustracion-boda-svg">
                     <svg viewBox="0 0 100 50" class="svg-boda">
                         <path d="M10,40 Q50,55 90,40" fill="none" stroke="#baa06a" stroke-width="1" stroke-dasharray="2,2"/>
@@ -64,12 +69,14 @@
 
                 <div class="lista-pases-contenedor">
                     <ul id="detalle-pases">
-                        </ul>
+                        <!-- Dinámico -->
+                    </ul>
                 </div>
             </div>
 
             <div class="divisor-dorado"></div>
 
+            <!-- BLOQUE CUENTA REGRESIVA -->
             <div class="bloque-seccion bloque-oscuro">
                 <h3 class="subtitulo-elegante">SAVE THE DATE</h3>
                 <h4 class="fecha-texto">Enero 8, 2027</h4>
@@ -79,21 +86,23 @@
 
             <div class="divisor-dorado"></div>
 
+            <!-- BLOQUE RECEPCIÓN -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante cursivo">Recepción</h3>
                 <p class="datos-lugar"><strong>Hora:</strong> 7:00 pm</p>
-                <p class="datos-lugar"><strong>Lugar:</strong> Restaurante Tramonti</p>
-                <p class="datos-lugar"><strong>Dirección:</strong> Cra. 1 Este #106-20</p>
-                <p class="datos-lugar-ciudad">Bogotá, Colombia</p>
+                <p class="datos-lugar"><strong>Lugar:</strong> La terraza del porton</p>
+                <p class="datos-lugar"><strong>Dirección:</strong> Av gran colombia número 6E-57</p>
+                <p class="datos-lugar-ciudad">Cúcuta, Colombia</p>
                 
                 <div class="botones-locales">
-                    <a href="https://maps.app.goo.gl/YVpUu6mU8LwA9VfG8" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
-                    <a href="https://waze.com/ul?ll=4.6868,-74.0294&navigate=yes" target="_blank" class="btn btn-waze">Ver en Waze</a>
+                    <a href="https://maps.app.goo.gl/eHX2nM8Q3NPbkQASA?g_st=aw" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
+                    <a href="https://waze.com/ul/hd3kkykug3" target="_blank" class="btn btn-waze">Ver en Waze</a>
                 </div>
             </div>
 
             <div class="divisor-dorado"></div>
 
+            <!-- BLOQUE INTERMEDIO con FOTO 2 -->
             <div class="bloque-seccion bloque-oscuro">
                 <div class="contenedor-foto">
                     <img src="foto2.jpeg" alt="Dayana y Exio - Foto Secundaria" class="foto-boda">
@@ -103,6 +112,7 @@
 
             <div class="divisor-dorado"></div>
 
+            <!-- BLOQUE DRESS CODE -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante">DRESS CODE</h3>
                 <div class="detalles-vestimenta">
@@ -124,51 +134,71 @@
                 </div>
             </div>
 
-            <div id="seccion-internacionales" style="display: none;">
-                <div class="divisor-dorado"></div>
-                <div class="bloque-seccion bloque-claro">
-                    <h3 class="subtitulo-elegante cursivo">Transmisión Virtual</h3>
-                    <p>Para nuestros familiares y amigos que se encuentran lejos, nos encantaría que nos acompañen a través de nuestra transmisión en vivo.</p>
-                    <a href="https://youtube.com" target="_blank" class="btn btn-virtual">Unirse a la Transmisión</a>
-                </div>
-            </div>
-
             <div class="divisor-dorado"></div>
 
+            <!-- BLOQUE REGALOS / LLUVIA DE SOBRES DINÁMICO -->
             <div class="bloque-seccion bloque-oscuro">
                 <h3 class="subtitulo-elegante">LLUVIA DE SOBRES</h3>
                 
+                <!-- Párrafo exclusivo para Invitados Locales (Cúcuta) -->
                 <p id="regalo-local" style="color: #fff; font-size: 0.95rem; line-height: 1.6; display: none;">
                     Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento para que deposites tu sobre.
                 </p>
 
+                <!-- Párrafo exclusivo para Invitados de Fuera -->
                 <p id="regalo-afuera" style="color: #fff; font-size: 0.95rem; line-height: 1.6; display: none;">
                     Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento o puedes realizar una transferencia bancaria:
                 </p>
                 
+                <!-- Datos bancarios protegidos (Sólo si es de fuera) -->
                 <div id="seccion-regalos" class="datos-bancarios" style="display: none;">
+                    <div class="campo-copia" style="margin-bottom: 8px;">
+                        <div>
+                            <span class="etiqueta-banco">Banco Falabella (Ahorros):</span>
+                            <p id="cuenta-novia">11180051541</p>
+                        </div>
+                        <button class="btn-copiar-dato" onclick="copiarDatoBancario('cuenta-novia', this)">Copiar Cuenta</button>
+                    </div>
                     <div class="campo-copia">
                         <div>
-                            <span class="etiqueta-banco">Banco de la Novia:</span>
-                            <p id="cuenta-novia">Ahorros Bancolombia: 123-456789-01</p>
+                            <span class="etiqueta-banco">Llave para transferencia:</span>
+                            <p id="llave-novia">@BFDG004969</p>
                         </div>
-                        <button class="btn-copiar-dato" onclick="copiarDatoBancario('cuenta-novia', this)">Copiar</button>
+                        <button class="btn-copiar-dato" onclick="copiarDatoBancario('llave-novia', this)">Copiar Llave</button>
                     </div>
                 </div>
             </div>
 
             <div class="divisor-dorado"></div>
 
+            <!-- BLOQUE CONFIRMACIÓN PRESENCIAL PRINCIPAL -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante cursivo">Confirmar Asistencia</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 20px;">Queremos preparar todos los detalles, déjanos saber si contaremos con tu valiosa compañía antes del 20 de Julio de 2026.</p>
                 <div id="contador-confirmacion"></div>
                 
                 <div class="botones-confirmar-unificados">
-                    <a href="URL_DE_VUESTRO_GOOGLE_FORMS" target="_blank" class="btn btn-confirmar-principal">CONFIRMAR ASISTENCIA</a>
+                    <a href="https://forms.gle/RdDDguU4DBg2iCAg8" target="_blank" class="btn btn-confirmar-principal">CONFIRMAR ASISTENCIA</a>
                     <button class="btn btn-calendario-principal">AGENDAR EN CALENDARIO</button>
                 </div>
+            </div>
 
+            <!-- TRANSMISIÓN VIRTUAL Y ASISTENCIA VIRTUAL (AL FINAL SÓLO PARA INVITADOS DE FUERA) -->
+            <div id="seccion-internacionales" style="display: none;">
+                <div class="divisor-dorado"></div>
+                <div class="bloque-seccion bloque-claro">
+                    <h3 class="subtitulo-elegante cursivo">Transmisión Virtual</h3>
+                    <p>Para nuestros familiares y amigos que se encuentran lejos, nos encantaría que nos acompañen a través de nuestra transmisión en vivo.</p>
+                    
+                    <div class="botones-confirmar-unificados">
+                        <a href="https://forms.gle/XENnP5TWRh7fCxd69" target="_blank" class="btn btn-maps" style="margin-bottom: 15px;">Confirmación asistencia virtual</a>
+                        <a href="https://youtube.com" target="_blank" class="btn btn-virtual" style="background-color: #7d8f69; color: white; border: 1px solid #fff;">Unirse a la Transmisión</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="divisor-dorado"></div>
+            <div class="bloque-seccion bloque-claro" style="padding-top: 10px;">
                 <p class="agradecimiento-final">¡Te esperamos!</p>
             </div>
 
