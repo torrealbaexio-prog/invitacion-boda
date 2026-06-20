@@ -4,141 +4,176 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Invitación de Boda - Dayana & Exio</title>
-    <link rel="stylesheet" href="style.css?v=5.0">
+    <!-- Importación de fuentes elegantes desde Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
 
+    <!-- REPRODUCTOR DE AUDIO OCULTO -->
     <audio id="musica-boda" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
+    <!-- PANTALLA 1: EL SOBRE INICIAL -->
     <div id="pantalla-sobre" class="pantalla-sobre">
         <div class="sobre-wrapper-imagen" id="sobre-clic">
-            <img src="sobre.jpg" alt="Sobre de Invitación" class="imagen-sobre-canva">
-            <p class="instruccion">Toca el sobre para abrir tu invitación</p>
+            <img src="sobre.jpeg" alt="Sobre de Invitación" class="imagen-sobre-canva">
+            <p class="instruccion">TOCA EL SOBRE PARA ABRIR</p>
         </div>
     </div>
 
+    <!-- PANTALLA 2: CONTENIDO DE LA INVITACIÓN -->
     <div id="contenido-invitacion" class="contenido-oculto">
         <div class="marco-invitacion">
-            
+            <!-- Contenedor para el efecto de hojas de olivo -->
             <div id="contenedor-petalos"></div>
 
-            <div class="contenedor-foto">
-                <img src="foto1.jpeg" alt="Dayana & Exio - Foto Principal" class="foto-boda">
+            <!-- BLOQUE CABECERA (Verde Oliva Medio) -->
+            <div class="bloque-seccion bloque-oscuro">
+                <div class="contenedor-foto">
+                    <!-- Tu foto con Dayana se mantiene aquí -->
+                    <img src="boda.jpeg" alt="Dayana y Exio" class="foto-boda">
+                </div>
+                <!-- Nombres Completos con Fuente Cursiva Elegante -->
+                <h1 class="nombres-novios">Dayana Garzón</h1>
+                <div class="ampersand">&</div>
+                <h1 class="nombres-novios">Exio Torrealba</h1>
             </div>
 
-            <section class="seccion bienvenida">
-                <h2>Querido(a) <span id="nombre-invitado" style="font-weight: bold; color: #3d4e1e;">Invitado</span></h2>
-                <p>Hemos decidido unir nuestras vidas en matrimonio y nos llenaría de alegría contar con su compañía en este día tan especial.</p>
-                <p class="firma">Con mucho cariño, queremos invitar a las siguientes personas de su familia:</p>
+            <!-- LÍNEA DIVISORIA DORADA -->
+            <div class="divisor-dorado"></div>
+
+            <!-- BLOQUE BIENVENIDA (Verde Oliva Claro) -->
+            <div class="bloque-seccion bloque-claro">
+                <!-- Nombre Dinámico del Invitado -->
+                <h2 id="nombre-invitado" class="texto-invitado">Invitado Especial</h2>
                 
+                <p class="versiculo">
+                    "Uno solo puede ser vencido, pero dos pueden resistir.<br>
+                    La cuerda de tres hilos no se rompe fácilmente."<br>
+                    <span class="cita-versiculo">Eclesiastés 4,12</span>
+                </p>
+
+                <!-- Detalle Ilustrado de Palomas y Anillos de la Referencia -->
+                <div class="ilustracion-boda">
+                    <div class="palomas-flores">🕊️🌸✨🌸🕊️</div>
+                    <div class="anillos-alianza">💍💍</div>
+                </div>
+                
+                <p class="introduccion-texto">
+                    Hemos decidido unir nuestras vidas en matrimonio y nos llenaría de alegría contar con su compañía en este día tan especial. Con mucho cariño, queremos invitar a las siguientes personas de su familia:
+                </p>
+
+                <!-- Pases Asignados -->
                 <div class="lista-pases-contenedor">
                     <ul id="detalle-pases">
-                        </ul>
+                        <!-- Cargados dinámicamente -->
+                    </ul>
                 </div>
-            </section>
+            </div>
 
-            <hr>
+            <div class="divisor-dorado"></div>
 
-            <section class="seccion cuenta-regresiva">
-                <h3>Tiempo restante para el gran día</h3>
+            <!-- BLOQUE CUENTA REGRESIVA (Verde Oliva Medio) -->
+            <div class="bloque-seccion bloque-oscuro">
+                <h3 class="subtitulo-elegante">SAVE THE DATE</h3>
+                <h4 class="fecha-texto">Enero 8, 2027</h4>
+                <p style="color: white; font-style: italic; margin-bottom: 5px;">Solo faltan:</p>
                 <div id="contador-boda"></div>
-            </section>
-
-            <div class="contenedor-foto">
-                <img src="foto2.jpeg" alt="Dayana & Exio - Cuenta Regresiva" class="foto-boda">
+                <button class="btn btn-calendario">AGENDAR EN CALENDARIO</button>
             </div>
 
-            <hr>
+            <div class="divisor-dorado"></div>
 
-            <section class="seccion datos-boda">
-                <h1 class="titulo-novios">Dayana & Exio</h1>
-                <p class="fecha-texto">8 de Enero de 2027</p>
-                <p class="hora-texto">7:00 PM</p>
-                <div class="bloque-direccion">
-                    <p><strong>Ciudad:</strong> Cúcuta</p>
-                    <p><strong>Lugar:</strong> La Terraza del Portón</p>
-                    <p><strong>Dirección:</strong> Av. Gran Colombia #6E-57</p>
+            <!-- BLOQUE RECEPCIÓN Y MAPAS (Verde Oliva Claro) -->
+            <div class="bloque-seccion bloque-claro">
+                <h3 class="subtitulo-elegante cursivo">Recepción</h3>
+                <p><strong>Hora:</strong> 7:00 pm</p>
+                <p><strong>Lugar:</strong> Salón de Eventos Espectacular</p>
+                
+                <div class="botones-locales">
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
+                    <a href="https://waze.com" target="_blank" class="btn btn-waze">Ver en Waze</a>
                 </div>
-                <div class="botones-mapa">
-                    <a href="https://maps.google.com/?q=La+Terraza+del+Portón+Cúcuta" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
-                    <a href="https://waze.com/ul/hd3kkykug3" target="_blank" class="btn btn-waze">Ver en Waze</a>
-                </div>
-            </section>
+            </div>
 
-            <hr>
+            <div class="divisor-dorado"></div>
 
-            <section class="seccion vestimenta">
-                <h3>Código de Vestimenta</h3>
-                <p>Nos encantará compartir este momento tan especial contigo. Te agradecemos asistir con vestimenta formal.</p>
+            <!-- BLOQUE DRESS CODE EXIGENTE (Verde Oliva Claro) -->
+            <div class="bloque-seccion bloque-claro">
+                <h3 class="subtitulo-elegante">DRESS CODE</h3>
+                
                 <div class="detalles-vestimenta">
-                    <div class="bloque-vestimenta">
-                        <h4>Caballeros</h4>
-                        <p>Traje formal. El uso de corbata es opcional.</p>
+                    <div class="genero-code">
+                        <p class="titulo-genero">Hombres:</p>
+                        <p class="descripcion-genero">Traje formal para hombre.</p>
                     </div>
-                    <div class="bloque-vestimenta">
-                        <h4>Damas</h4>
-                        <p>Vestido formal. Evitar escotes pronunciados y vestidos cortos.</p>
-                        <p class="alerta-colores">Por favor, <strong>evitar</strong> los siguientes colores:</p>
-                        <div class="colores-prohibidos">
-                            <div class="item-color"><span class="circulo-color blanco"></span> Blanco</div>
-                            <div class="item-color"><span class="circulo-color verde"></span> Verde</div>
-                            <div class="item-color"><span class="circulo-color gris"></span> Gris</div>
-                        </div>
+                    
+                    <div class="genero-code">
+                        <p class="titulo-genero">Mujeres:</p>
+                        <p class="descripcion-genero">Vestido largo formal, sin escotes pronunciados ni tiras.</p>
                     </div>
                 </div>
-            </section>
 
-            <hr>
+                <p class="aviso-colores">Respetuosamente les solicitamos reservar los siguientes colores de uso exclusivo de la novia y la corte:</p>
+                <div class="colores-prohibidos">
+                    <div class="item-color"><span class="circulo-color blanco"></span> Blanco</div>
+                    <div class="item-color"><span class="circulo-color verde"></span> Verde</div>
+                    <div class="item-color"><span class="circulo-color gris"></span> Gris</div>
+                </div>
+            </div>
 
-            <section class="seccion confirmacion-seccion">
-                <h3>Confirmación de Asistencia</h3>
-                <p class="fecha-limite-texto">Fecha límite: 20 de julio de 2026 a las 11:59 PM</p>
-                <div id="contador-confirmacion"></div>
-                <br>
-                <a href="https://forms.gle/u5Eow8dtjPT1rmgE9" target="_blank" class="btn btn-confirmar" id="btn-presencial">Confirmar asistencia</a>
-                <br>
-                <button id="btn-calendario" class="btn btn-calendario">Agregar a mi calendario</button>
-            </section>
-
+            <!-- BLOQUE DINÁMICO INTERNACIONALES (SÓLO SI CORRESPONDE) -->
             <div id="seccion-internacionales" style="display: none;">
-                <hr>
-                <section class="seccion internacionales">
-                    <h3>Invitados Internacionales</h3>
-                    <p>Si te resulta imposible viajar, nos encantará que formes parte de este momento a través de nuestra transmisión privada.</p>
-                    <a href="https://forms.gle/fgs2Wmb2s4xNUL6p7" target="_blank" class="btn btn-virtual">Confirmar asistencia virtual</a>
-                </section>
+                <div class="divisor-dorado"></div>
+                <div class="bloque-seccion bloque-claro">
+                    <h3 class="subtitulo-elegante cursivo">Transmisión Virtual</h3>
+                    <p>Para nuestros familiares y amigos que se encuentran lejos, nos encantaría que nos acompañen a través de nuestra transmisión en vivo.</p>
+                    <a href="https://youtube.com" target="_blank" class="btn btn-virtual">Unirse a la Transmisión</a>
+                </div>
             </div>
 
-            <div id="seccion-regalos" style="display: none;">
-                <hr>
-                <section class="seccion regalos">
-                    <h3>"Tu regalo, nuestro inicio"</h3>
-                    <p>El mayor regalo será contar con tu presencia.</p>
-                    <p>Si deseas tener un detalle, hemos elegido la tradicional lluvia de sobres.</p>
-                    
-                    <div class="datos-bancarios">
-                        <h4>Datos Bancarios</h4>
-                        <p><strong>Banco:</strong> Falabella</p>
-                        <p><strong>Tipo de cuenta:</strong> Ahorros</p>
-                        
-                        <div class="campo-copia">
-                            <p><strong>Número de cuenta:</strong> <span id="num-cuenta">5143329248913659</span></p>
-                            <button class="btn-copiar-dato" onclick="window.copiarDatoBancario('num-cuenta', this)">Copiar Cuenta</button>
+            <div class="divisor-dorado"></div>
+
+            <!-- BLOQUE REGALOS / LLUVIA DE SOBRES -->
+            <div class="bloque-seccion bloque-oscuro">
+                <h3 class="subtitulo-elegante">LLUVIA DE SOBRES</h3>
+                <p style="color: #fff;">Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento o puedes realizar una transferencia:</p>
+                
+                <!-- Sección de regalos oculta para locales, visible para extranjeros mediante script -->
+                <div id="seccion-regalos" class="datos-bancarios" style="display: none;">
+                    <div class="campo-copia">
+                        <div>
+                            <span class="etiqueta-banco">Banco de la Novia:</span>
+                            <p id="cuenta-novia">Ahorros Bancolombia: 123-456789-01</p>
                         </div>
-                        
-                        <div class="campo-copia">
-                            <p><strong>Llave:</strong> <span id="llave-banco">@BFDG004969</span></p>
-                            <button class="btn-copiar-dato" onclick="window.copiarDatoBancario('llave-banco', this)">Copiar Llave</button>
-                        </div>
+                        <button class="btn-copiar-dato" onclick="copiarDatoBancario('cuenta-novia', this)">Copiar</button>
                     </div>
-                </section>
+                </div>
             </div>
-            
+
+            <div class="divisor-dorado"></div>
+
+            <!-- BLOQUE CONFIRMACIÓN (Verde Oliva Claro) -->
+            <div class="bloque-seccion bloque-claro">
+                <h3 class="subtitulo-elegante cursivo">Confirmar Asistencia</h3>
+                <p>Queremos preparar todos los detalles, déjanos saber si contaremos con tu valiosa compañía antes del 20 de Julio de 2026.</p>
+                <div id="contador-confirmacion"></div>
+                
+                <div class="botones-confirmar">
+                    <a href="https://wa.me/tu_numero_exio" target="_blank" class="btn btn-confirmar">CONFIRMACIÓN CON EL NOVIO</a>
+                    <a href="https://wa.me/tu_numero_dayana" target="_blank" class="btn btn-confirmar">CONFIRMACIÓN CON LA NOVIA</a>
+                </div>
+
+                <p class="agradecimiento-final">¡Te esperamos!</p>
+            </div>
+
         </div>
     </div>
 
-    <script src="script.js?v=5.0"></script>
+    <script src="script.js"></script>
 </body>
 </html>

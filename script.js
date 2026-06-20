@@ -21,6 +21,7 @@ document.addEventListener("DOMContentLoaded", () => {
     const musica = document.getElementById("musica-boda");
     const btnCalendario = document.querySelector(".btn-calendario");
 
+    // Fecha del gran evento
     const fechaBoda = new Date("Jan 8, 2027 19:00:00").getTime();
     const fechaLimite = new Date("Jul 20, 2026 23:59:00").getTime();
 
@@ -54,7 +55,9 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
-    document.getElementById('nombre-invitado').innerText = nombreInvitado;
+    // Insertar el nombre del invitado de forma limpia
+    const itemNombre = document.getElementById('nombre-invitado');
+    if (itemNombre) itemNombre.innerText = nombreInvitado;
     
     const contenedorLista = document.getElementById('detalle-pases');
     if (contenedorLista) {
@@ -74,6 +77,7 @@ document.addEventListener("DOMContentLoaded", () => {
         }
     }
 
+    // Gestionar bloques dinámicos según procedencia
     const divInternacionales = document.getElementById('seccion-internacionales');
     const divRegalos = document.getElementById('seccion-regalos');
     if (tipoInvitado === 'afuera') {
@@ -89,18 +93,16 @@ document.addEventListener("DOMContentLoaded", () => {
             if (pantallaSobre) pantallaSobre.classList.add("sobre-desvanecido");
             if (contenidoInvitacion) contenidoInvitacion.classList.add("mostrar-contenido");
             if (musica) {
-                musica.play().catch(() => console.log("Permiso de audio pendiente"));
+                musica.play().catch(() => console.log("Permiso de reproducción pendiente"));
             }
             lanzarLluviaPetalos();
         };
     }
 
-    // LÓGICA DEL BOTÓN CALENDARIO CORREGIDA
     if (btnCalendario) {
         btnCalendario.onclick = function(e) {
             e.preventDefault();
-            // Enlace directo a Google Calendar con el evento configurado
-            const googleCalendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Dayana+%26+Exio&dates=20270108T190000/20270109T020000&details=¡Acompáñanos+a+celebrar+nuestra+boda!&location=Cúcuta,+Colombia&sf=true&output=xml";
+            const googleCalendarUrl = "https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Dayana+Garz%C3%B3n+%26+Exio+Torrealba&dates=20270108T190000/20270109T020000&details=%C2%A1Acomp%C3%A1%C3%B1anos+a+celebrar+nuestra+boda%21&location=C%C3%BAcuta,+Colombia&sf=true&output=xml";
             window.open(googleCalendarUrl, '_blank');
         };
     }
@@ -108,13 +110,13 @@ document.addEventListener("DOMContentLoaded", () => {
     function lanzarLluviaPetalos() {
         const contenedor = document.getElementById("contenedor-petalos");
         if (!contenedor) return;
-        for (let i = 0; i < 40; i++) {
+        for (let i = 0; i < 35; i++) {
             const petalo = document.createElement("div");
             petalo.classList.add("petalo");
-            petalo.style.width = `${Math.random() * 8 + 8}px`; 
-            petalo.style.height = `${Math.random() * 14 + 12}px`;
+            petalo.style.width = `${Math.random() * 6 + 8}px`; 
+            petalo.style.height = `${Math.random() * 12 + 12}px`;
             petalo.style.left = `${Math.random() * 100}vw`;
-            petalo.style.animationDuration = `${Math.random() * 2 + 2.5}s`;
+            petalo.style.animationDuration = `${Math.random() * 2 + 3}s`;
             contenedor.appendChild(petalo);
         }
     }
@@ -122,7 +124,7 @@ document.addEventListener("DOMContentLoaded", () => {
     function actualizarContadores() {
         const ahora = new Date().getTime();
 
-        // Reloj Boda
+        // Reloj de la celebración
         const contBoda = document.getElementById("contador-boda");
         if (contBoda) {
             const difBoda = fechaBoda - ahora;
@@ -142,7 +144,7 @@ document.addEventListener("DOMContentLoaded", () => {
             }
         }
 
-        // Reloj Límite
+        // Reloj límite de confirmación
         const contConfirmar = document.getElementById("contador-confirmacion");
         if (contConfirmar) {
             const difReal = fechaLimite - ahora;
