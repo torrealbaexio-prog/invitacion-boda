@@ -101,6 +101,7 @@ body {
 .bloque-claro {
     background-color: #e2e9dc; /* Verde Oliva Claro */
     color: #38422a;
+    padding: 45px 25px; /* Un poco más de aire vertical para balancear elementos */
 }
 
 .divisor-dorado {
@@ -167,27 +168,47 @@ body {
     letter-spacing: 1px;
 }
 
-/* DISEÑO DE ILUSTRACIÓN REALISTA SVG */
+/* DISEÑO DE ILUSTRACIÓN REALISTA SVG (ANILLOS ENLAZADOS) */
 .ilustracion-boda-svg {
-    max-width: 160px;
-    margin: 0 auto 25px auto;
+    max-width: 140px;
+    margin: 15px auto 30px auto; /* Equilibra el espacio superior e inferior (image_fa009a.png) */
 }
 .svg-boda {
     width: 100%;
     height: auto;
 }
 
-/* RECUADRO DE PASES E INVITADOS */
+/* RECUADRO DE PASES E INVITADOS MEJORADO (image_fa009a.png) */
 .lista-pases-contenedor {
-    background-color: rgba(255, 255, 255, 0.45);
-    border: 1px dashed #7d8f69;
-    padding: 15px;
-    border-radius: 6px;
-    margin: 25px auto 0 auto;
-    max-width: 85%;
+    background-color: rgba(255, 255, 255, 0.65); /* Fondo más limpio y semi-translúcido */
+    border: 1px solid rgba(125, 143, 105, 0.4);   /* Línea sólida refinada en vez de líneas discontinuas */
+    padding: 22px 15px;
+    border-radius: 8px;                           /* Esquinas sutilmente suavizadas */
+    margin: 30px auto;
+    max-width: 90%;
+    box-shadow: 0 4px 15px rgba(44, 53, 31, 0.04); /* Pequeño relieve estético */
 }
 .lista-pases-contenedor ul { list-style: none; padding: 0; margin: 0; }
-.lista-pases-contenedor li { font-size: 1rem; font-weight: bold; color: #2c351f; }
+.lista-pases-contenedor li { 
+    font-size: 1.05rem; 
+    font-weight: 600; 
+    color: #2c351f; 
+    letter-spacing: 0.5px;                        /* Espaciado de letras elegante */
+    margin-bottom: 8px;
+    line-height: 1.4;
+}
+.lista-pases-contenedor li:last-child { margin-bottom: 0; }
+
+/* OPTIMIZACIÓN DE LA NOTA ACLARATORIA (Niños/Cupos en image_fa009a.png) */
+.nota-aclaratoria {
+    font-size: 0.8rem !important;                 /* Jerarquía visual de nota al pie */
+    color: #55663c;
+    font-style: italic;
+    margin-top: 25px;
+    line-height: 1.5 !important;                  /* Interlineado amplio y legible */
+    padding: 0 15px;
+    opacity: 0.9;
+}
 
 /* SECCIÓN LUGAR Y DIRECCIÓN */
 .datos-lugar {
