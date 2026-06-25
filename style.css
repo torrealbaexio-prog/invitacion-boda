@@ -33,7 +33,7 @@ body {
     width: 100%;
     max-width: 400px;
     height: auto;
-    min-height: 230px;
+    min-height: 250px;
     display: block;
     margin: 0 auto;
     border-radius: 6px;
@@ -44,12 +44,11 @@ body {
     margin-top: 25px;
     font-family: 'Playfair Display', serif;
     font-style: italic;
-    font-size: 1.2rem;
+    font-size: 1.25rem;
     color: #4a5d24;
     font-weight: 500;
     letter-spacing: 2px;
     text-transform: uppercase;
-    opacity: 0.85;
     animation: palpitar 2s infinite;
 }
 
@@ -66,7 +65,7 @@ body {
     transition: opacity 1s ease, transform 1s ease;
     max-width: 480px;
     margin: 0 auto;
-    padding: 15px 10px;
+    padding: 20px 10px;
     box-sizing: border-box;
 }
 
@@ -84,7 +83,7 @@ body {
 }
 
 .bloque-seccion {
-    padding: 35px 20px;
+    padding: 40px 25px;
     text-align: center;
     box-sizing: border-box;
     width: 100%;
@@ -98,36 +97,53 @@ body {
 .bloque-claro {
     background-color: #e2e9dc;
     color: #38422a;
+    padding: 45px 25px;
 }
 
 .divisor-dorado {
-    height: 2px;
+    height: 3px;
     background: linear-gradient(90deg, rgba(187,148,65,0) 0%, rgba(218,181,105,1) 50%, rgba(187,148,65,0) 100%);
     width: 100%;
 }
 
 .nombres-novios {
     font-family: 'Parisienne', cursive;
-    font-size: 3rem;
+    font-size: 3.5rem;
     margin: 0;
+    font-weight: 400;
     color: #ffffff;
+    line-height: 1.1;
+}
+
+.ampersand {
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+    font-style: italic;
+    color: #dab569;
+    margin: 8px 0;
 }
 
 .subtitulo-elegante {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.6rem;
     letter-spacing: 2px;
+    margin-top: 0;
     margin-bottom: 20px;
     font-weight: 600;
-    text-transform: uppercase;
+}
+
+.subtitulo-elegante.cursivo {
+    font-family: 'Parisienne', cursive;
+    font-size: 3rem;
+    font-weight: 400;
 }
 
 .texto-invitado {
     font-family: 'Playfair Display', serif;
-    font-size: 1.4rem;
+    font-size: 1.5rem;
     color: #4a5d24;
-    margin-bottom: 15px;
-    font-weight: 600;
+    margin-top: 0;
+    margin-bottom: 25px;
 }
 
 .versiculo {
@@ -135,6 +151,7 @@ body {
     font-style: italic;
     font-size: 0.95rem;
     line-height: 1.6;
+    margin-bottom: 25px;
 }
 
 .cita-versiculo {
@@ -145,57 +162,77 @@ body {
 }
 
 .ilustracion-boda-svg {
-    max-width: 120px;
-    margin: 15px auto;
+    max-width: 140px;
+    margin: 15px auto 30px auto;
+}
+.svg-boda {
+    width: 100%;
+    height: auto;
 }
 
-/* CONTENEDOR PASES SOLID LINED */
+/* RECUADRO PASES MEJORADO SOLID LINE */
 .lista-pases-contenedor {
-    background-color: rgba(255, 255, 255, 0.75);
+    background-color: rgba(255, 255, 255, 0.65);
     border: 1px solid rgba(125, 143, 105, 0.4);
-    padding: 18px 15px;
-    border-radius: 6px;
-    margin: 20px auto;
+    padding: 22px 15px;
+    border-radius: 8px;
+    margin: 30px auto;
     max-width: 90%;
+    box-shadow: 0 4px 15px rgba(44, 53, 31, 0.04);
 }
 .lista-pases-contenedor ul { list-style: none; padding: 0; margin: 0; }
 .lista-pases-contenedor li { 
     font-size: 1.05rem; 
     font-weight: 600; 
     color: #2c351f; 
+    letter-spacing: 0.5px;
 }
 
 .nota-aclaratoria {
     font-size: 0.8rem !important;
     color: #55663c;
     font-style: italic;
-    line-height: 1.4;
+    margin-top: 25px;
+    line-height: 1.5 !important;
+    padding: 0 15px;
 }
 
-/* CONTADORES DISPOSITIVOS MÓVILES */
+.datos-lugar { margin: 6px 0; font-size: 1rem; }
+.datos-lugar-ciudad {
+    margin: 4px 0 20px 0;
+    font-size: 0.9rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    color: #607345;
+}
+
+.contenedor-foto {
+    width: 100%;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 25px;
+    box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+}
+.foto-boda { width: 100%; height: auto; display: block; }
+
+/* CONTADOR DISPLAY */
 .contador-display {
     display: flex;
     justify-content: center;
-    gap: 6px;
+    gap: 8px;
     margin: 20px 0;
 }
 .unidad-tiempo {
     background-color: rgba(255, 255, 255, 0.12);
     border: 1px solid rgba(255, 255, 255, 0.25);
     color: white;
-    padding: 8px;
+    padding: 10px;
     border-radius: 6px;
-    min-width: 60px;
+    min-width: 65px;
 }
-.unidad-tiempo .numero { 
-    display: block; 
-    font-size: 1.3rem; 
-    font-weight: bold; 
-}
-.unidad-tiempo .etiqueta { 
-    font-size: 0.55rem; 
-    text-transform: uppercase; 
-}
+.unidad-tiempo .numero { display: block; font-size: 1.5rem; font-weight: bold; }
+.unidad-tiempo .etiqueta { font-size: 0.6rem; text-transform: uppercase; opacity: 0.8; }
 
 /* BOTONES */
 .btn {
@@ -208,13 +245,15 @@ body {
     font-size: 0.85rem;
     letter-spacing: 1px;
     width: 90%;
-    max-width: 280px;
+    max-width: 290px;
     text-transform: uppercase;
     box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
     text-align: center;
 }
 .btn-maps { background-color: #baa06a; color: white; border: 1px solid #ffffff; }
 .btn-confirmar-principal { background-color: #baa06a; color: white; border: 1px solid #ffffff; }
+.btn-calendario-principal { background-color: #e2e9dc; color: #7d8f69; border: 1px solid #7d8f69; }
 
 .botones-confirmar-unificados {
     display: flex;
@@ -223,28 +262,36 @@ body {
     width: 100%;
 }
 
-/* CIRCULO PALO ROSA DEFENSA TOTAL */
-.circulo-color { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #bbb; display: inline-block; vertical-align: middle; }
+/* DRESS CODE */
+.detalles-vestimenta { margin: 25px 0; }
+.genero-code { margin-bottom: 20px; }
+.titulo-genero { font-weight: 600; font-size: 1.1rem; margin: 0; color: #4a5d24; }
+.descripcion-genero { margin: 4px 0 0 0; font-size: 0.95rem; }
+.aviso-colores { font-size: 0.85rem; font-style: italic; max-width: 85%; margin: 25px auto 12px auto; }
+.colores-prohibidos { display: flex; justify-content: center; gap: 20px; }
+.item-color { display: flex; align-items: center; gap: 8px; font-size: 0.85rem; font-weight: 600; }
+.circulo-color { width: 18px; height: 18px; border-radius: 50%; border: 1px solid #bbb; display: inline-block; }
 .circulo-color.blanco { background-color: #ffffff; }
 .circulo-color.verde { background-color: #7d8f69; }
+.circulo-color.gris { background-color: #9e9e9e; }
 
+/* DEFENSE TOTAL PALO ROSA */
 .palorosa,
 .circulo-color.palorosa,
 .colores-prohibidos .item-color .circulo-color.palorosa {
     background-color: #e8c5c8 !important;
     background: #e8c5c8 !important;
     border: 1px solid #d4b2b5 !important;
+    display: inline-block !important;
 }
-.colores-prohibidos { display: flex; justify-content: center; gap: 15px; margin-top: 10px; }
-.item-color { display: flex; align-items: center; gap: 6px; font-size: 0.85rem; color: white; }
 
-/* CUENTA BANCARIA */
-.datos-bancarios { background-color: rgba(255,255,255,0.7); padding: 15px; border-radius: 6px; border: 1px solid rgba(125,143,105,0.3); margin: 20px auto; text-align: left; max-width: 90%; }
-.campo-copia { display: flex; justify-content: space-between; align-items: center; background: rgba(255,255,255,0.9); padding: 10px; border-radius: 4px; margin-top: 8px; }
-.campo-copia p { margin: 0; font-size: 0.9rem; font-weight: 600; color: #38422a; }
-.etiqueta-banco { font-size: 0.75rem; color: #baa06a; font-weight: bold; }
-.btn-copiar-dato { background-color: #7d8f69; color: white; border: none; padding: 6px 12px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold; }
+/* REGALOS BANCO */
+.datos-bancarios { background-color: rgba(255,255,255,0.85); padding: 15px; border-radius: 6px; border: 1px solid rgba(125,143,105,0.3); margin-top: 20px; text-align: left; }
+.campo-copia { display: flex; justify-content: space-between; align-items: center; background: rgba(0,0,0,0.05); padding: 12px; border-radius: 5px; }
+.etiqueta-banco { font-size: 0.75rem; color: #a88f58; font-weight: bold; }
+.btn-copiar-dato { background-color: #7d8f69; color: white; border: none; padding: 7px 14px; border-radius: 4px; cursor: pointer; font-size: 0.75rem; font-weight: bold; }
 
-.agradecimiento-final { font-family: 'Parisienne', cursive; font-size: 2.5rem; color: #ffffff; margin-top: 25px; margin-bottom: 0; }
+#contenedor-petalos { position: absolute; top: 0; left: 0; width: 100%; height: 100%; pointer-events: none; overflow: hidden; z-index: 10; }
+.agradecimiento-final { font-family: 'Parisienne', cursive; font-size: 3rem; color: #4a5d24; margin-top: 30px; }
 
-@keyframes palpitar { 0% { transform: scale(1); } 50% { transform: scale(1.03); } 100% { transform: scale(1); } }
+@keyframes palpitar { 0% { transform: scale(1); opacity: 0.8; } 50% { transform: scale(1.03); opacity: 1; } 100% { transform: scale(1); opacity: 0.8; } }

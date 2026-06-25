@@ -1,56 +1,75 @@
-// 1. CONTROL DE APERTURA DEL SOBRE
+// 1. CONTROL DE APERTURA DEL SOBRE Y REPRODUCCIÓN DE MÚSICA REAL
 function abrirInvitacion() {
     const sobre = document.getElementById('pantalla-sobre');
     const contenido = document.getElementById('contenido-invitacion');
+    const musica = document.getElementById('musica-boda');
     
+    // Ocultar sobre de forma elegante
     sobre.classList.add('sobre-desvanecido');
     contenido.classList.add('mostrar-contenido');
     
-    // Desencadena el inicio de efectos adicionales si los hay (ej. pétalos)
+    // Intentar reproducir la canción real (musica.mp3) tras interactuar
+    if (musica) {
+        musica.play().catch(error => {
+            console.log("La reproducción automática fue bloqueada por el navegador móvil, pero el código está listo.");
+        });
+    }
+    
     setTimeout(() => {
         sobre.style.display = 'none';
     }, 800);
 }
 
-// 2. DETECCIÓN ROBUSTA DE INVITADOS (URL QUERY PARAMS)
+// 2. DETECCIÓN ROBUSTA DE PARÁMETROS URL (SIN CONFLICTO DE FORMATO EN CELULARES)
 document.addEventListener("DOMContentLoaded", function() {
-    // Forzamos la lectura limpia de parámetros ignorando hashes de enrutamiento móvil
-    const urlCleanString = window.location.search;
-    const urlParams = new URLSearchParams(urlCleanString);
+    // Leemos la URL limpiando cualquier interferencia de hash de redes sociales o navegadores móviles
+    const urlParams = new URLSearchParams(window.location.search);
     
-    // Obtener variables de la URL (Ejemplo: ?invitado=Familia+Perez&pases=3&tipo=fuera)
     let nombreInvitado = urlParams.get('invitado') || "Invitado Especial";
     let numPases = urlParams.get('pases') || "1";
     let tipoInvitado = urlParams.get('tipo') || "local"; // 'local' o 'fuera'
 
-    // Inyectar Nombre de Invitado
+    // Limpieza automática por si viene el paréntesis de la novia en la base de datos
+    if (nombreInvitado.includes("(Deberá ir de blanco)")) {
+        nombreInvitado = nombreInvitado.replace("(Deberá ir de blanco)", "").trim();
+    }
+
+    // Inyectar Nombre del Invitado
     document.getElementById('nombre-invitado').innerText = nombreInvitado;
 
     // Renderizar cantidad de pases asignados
     const infoPases = document.getElementById('info-pases');
-    if(parseInt(numPases) === 1) {
+    if (parseInt(numPases) === 1) {
         infoPases.innerText = "Válido para: 1 Persona";
     } else {
         infoPases.innerText = `Válido para: ${numPases} Personas`;
     }
 
-    // LÓGICA REFORZADA: Mostrar u ocultar sección de Regalos / Transmisión Virtual
+    // CONTROL COMPLETO DE VISIBILIDAD DE BLOQUES INTERNACIONALES (MÓVIL Y PC)
     const bloqueVirtualRegalos = document.getElementById('bloque-virtual-regalos');
     const contenidoFueraCucuta = document.getElementById('contenido-fuera-cucuta');
+    const regaloLocal = document.getElementById('regalo-local');
+    const regaloAfuera = document.getElementById('regalo-afuera');
+    const seccionBancariaDesplegable = document.getElementById('seccion-bancaria-desplegable');
 
-    // Forzamos el display block en el contenedor principal si aplica
+    // Forzamos el comportamiento idéntico en celulares
     if (tipoInvitado.toLowerCase() === "fuera") {
-        bloqueVirtualRegalos.style.display = "block"; // Se muestra todo el bloque en el celular
-        contenidoFueraCucuta.style.display = "block";  // Se muestra la parte de transmisión online
+        bloqueVirtualRegalos.style.display = "block";
+        contenidoFueraCucuta.style.display = "block";
+        regaloLocal.style.display = "none";
+        regaloAfuera.style.display = "block";
+        seccionBancariaDesplegable.style.display = "block"; // Muestra los datos de Banco Falabella
     } else {
-        // Si es invitado local, de todas formas mostramos el bloque pero ocultamos la transmisión
+        // Invitados locales: Muestra solo el bloque de regalos físico con la urna
         bloqueVirtualRegalos.style.display = "block";
         contenidoFueraCucuta.style.display = "none";
+        regaloLocal.style.display = "block";
+        regaloAfuera.style.display = "none";
+        seccionBancariaDesplegable.style.display = "none";
     }
 
-    // 3. CONTADOR DE TIEMPO DEFINITIVO
-    // Ajusta la fecha exacta de tu boda aquí (Año, Mes [0-11], Día, Hora, Min)
-    const fechaBoda = new Date(2026, 11, 12, 16, 0, 0).getTime(); 
+    // 3. CUENTA REGRESIVA REAL HASTA EL 8 DE ENERO DE 2027
+    const fechaBoda = new Date("Jan 8, 2027 19:00:00").getTime();
 
     const x = setInterval(function() {
         const ahora = new Date().getTime();
@@ -61,48 +80,44 @@ document.addEventListener("DOMContentLoaded", function() {
         const minutos = Math.floor((distancia % (1000 * 60 * 60)) / (1000 * 60));
         const segundos = Math.floor((distancia % (1000 * 60)) / 1000);
 
-        // Imprimir resultados en los elementos correspondientes
+        // Inyectar valores con ceros a la izquierda
         document.getElementById("dias").innerText = dias < 10 ? "0" + dias : dias;
         document.getElementById("horas").innerText = horas < 10 ? "0" + horas : horas;
         document.getElementById("minutos").innerText = minutos < 10 ? "0" + minutos : minutos;
         document.getElementById("segundos").innerText = segundos < 10 ? "0" + segundos : segundos;
 
-        // Si el contador termina
         if (distancia < 0) {
             clearInterval(x);
-            document.getElementById("contador").style.display = "none";
+            document.getElementById("contador").innerHTML = "¡Llegó el Gran Día!";
         }
     }, 1000);
 });
 
-// 4. FUNCIÓN PARA COPIAR AL PORTAPAPELES COHESIVA
-function copiarCuenta() {
-    const numeroCuenta = "123-456789-00"; // Asegúrate de cambiarlo por tu número real
-    
-    // Intento con API moderna de portapapeles, si falla usa fallback clásico para móviles viejos
+// 4. SISTEMA DE COPIADO SEGURO PARA DISPOSITIVOS MÓVILES
+function copiarDatoBancario(texto) {
     if (navigator.clipboard && navigator.clipboard.writeText) {
-        navigator.clipboard.writeText(numeroCuenta).then(() => {
-            alert("¡Número de cuenta copiado con éxito!");
-        }).catch(err => {
-            fallbackCopiarTexto(numeroCuenta);
+        navigator.clipboard.writeText(texto).then(() => {
+            alert("Copiado al portapapeles con éxito.");
+        }).catch(() => {
+            fallbackCopiar(texto);
         });
     } else {
-        fallbackCopiarTexto(numeroCuenta);
+        fallbackCopiar(texto);
     }
 }
 
-function fallbackCopiarTexto(texto) {
+function fallbackCopiar(texto) {
     const textArea = document.createElement("textarea");
     textArea.value = texto;
-    textArea.style.position = "fixed";  // Evitar scroll en pantalla móvil
+    textArea.style.position = "fixed"; 
     document.body.appendChild(textArea);
     textArea.focus();
     textArea.select();
     try {
         document.execCommand('copy');
-        alert("¡Número de cuenta copiado con éxito!");
+        alert("Copiado al portapapeles con éxito.");
     } catch (err) {
-        alert("No se pudo copiar automáticamente. Número: " + texto);
+        alert("Por favor copia manualmente el dato: " + texto);
     }
     document.body.removeChild(textArea);
 }
