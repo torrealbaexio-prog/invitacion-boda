@@ -11,25 +11,21 @@
 </head>
 <body>
 
-    <!-- REPRODUCTOR DE AUDIO -->
     <audio id="musica-boda" loop>
         <source src="musica.mp3" type="audio/mpeg">
     </audio>
 
-    <!-- PANTALLA 1: SOBRE INICIAL -->
     <div id="pantalla-sobre" class="pantalla-sobre">
-        <div class="sobre-wrapper-imagen" onclick="abrirInvitacion()">
+        <div id="contenedor-pases-bloque" class="lista-pases-contenedor">
             <img src="sobre.jpg" alt="Sobre de Invitación" class="imagen-sobre-canva">
             <p class="instruccion">TOCA EL SOBRE PARA ABRIR</p>
         </div>
     </div>
 
-    <!-- PANTALLA 2: CONTENIDO DE LA INVITACIÓN -->
     <div id="contenido-invitacion" class="contenido-oculto">
         <div class="marco-invitacion">
             <div id="contenedor-petalos"></div>
 
-            <!-- CABECERA CON FOTO 1 -->
             <div class="bloque-seccion bloque-oscuro">
                 <div class="contenedor-foto">
                     <img src="foto1.jpeg" alt="Dayana y Exio" class="foto-boda">
@@ -41,9 +37,7 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- BLOQUE BIENVENIDA (CONECTADO AL ADMIN) -->
             <div class="bloque-seccion bloque-claro">
-                <!-- Estructura corregida para mostrar "Estimado (a)" y el nombre dinámico del admin -->
                 <h2 class="texto-invitado">Estimado (a) <span id="nombre-invitado"></span></h2>
                 
                 <p class="versiculo">
@@ -51,7 +45,6 @@
                     <span class="cita-versiculo">Eclesiastés 4,12</span>
                 </p>
 
-                <!-- Gráfico del Anillo -->
                 <div class="ilustracion-boda-svg">
                     <svg viewBox="0 0 100 50" class="svg-boda">
                         <path d="M10,40 Q50,55 90,40" fill="none" stroke="#baa06a" stroke-width="1" stroke-dasharray="2,2"/>
@@ -68,14 +61,10 @@
                     Hemos decidido unir nuestras vidas en matrimonio y nos llenaría de alegría contar con su compañía en este día tan especial. Con mucho cariño, queremos invitar a las siguientes personas de su familia:
                 </p>
 
-                <!-- CONTENEDOR DE PASES DINÁMICOS -->
                 <div class="lista-pases-contenedor">
-                    <ul id="lista-pases-dinamica">
-                        <!-- Tu panel de administrador inyecta los pases y nombres específicos aquí -->
-                    </ul>
+                    <ul id="lista-pases-dinamica"></ul>
                 </div>
 
-                <!-- NOTA ACLARATORIA RESTABLECIDA -->
                 <p class="nota-aclaratoria">
                     * Con el fin de asegurar la comodidad de todos, les informamos amablemente que los cupos son estrictamente limitados a las personas registradas en esta invitación. Asimismo, hemos optado por celebrar una velada exclusivamente para adultos, por lo que agradecemos su comprensión al no asistir con niños ni invitados adicionales.
                 </p>
@@ -83,7 +72,6 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- CUENTA REGRESIVA REPARADA -->
             <div class="bloque-seccion bloque-oscuro">
                 <h3 class="subtitulo-elegante">SAVE THE DATE</h3>
                 <h4 class="fecha-texto" style="font-family: 'Playfair Display', serif; font-size: 1.5rem; margin: 5px 0 15px 0; color: #dab569;">Enero 8, 2027</h4>
@@ -99,7 +87,6 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- RECEPCIÓN (ENLACES CORREGIDOS) -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante cursivo">Recepción</h3>
                 <p class="datos-lugar"><strong>Hora:</strong> 7:00 pm</p>
@@ -115,7 +102,6 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- INTERMEDIO CON FOTO 2 -->
             <div class="bloque-seccion bloque-oscuro">
                 <div class="contenedor-foto">
                     <img src="foto2.jpeg" alt="Dayana y Exio" class="foto-boda">
@@ -125,7 +111,6 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- DRESS CODE CON PALO ROSA INTEGRADO -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante">DRESS CODE</h3>
                 <div class="detalles-vestimenta">
@@ -138,7 +123,6 @@
                         <p class="descripcion-genero">Vestido largo formal, sin escotes pronunciados ni tiras.</p>
                     </div>
                 </div>
-
                 <p class="aviso-colores">Respetuosamente les solicitamos reservar los siguientes colores de uso exclusivo de la novia y la corte:</p>
                 <div class="colores-prohibidos">
                     <div class="item-color"><span class="circulo-color blanco"></span> Blanco</div>
@@ -148,11 +132,9 @@
                 </div>
             </div>
 
-            <!-- REGALOS Y TRANSMISIÓN -->
             <div id="bloque-virtual-regalos">
                 <div class="divisor-dorado"></div>
                 <div class="bloque-seccion bloque-oscuro">
-                    
                     <div id="contenido-fuera-cucuta" style="display: none;">
                         <h3 class="subtitulo-elegante cursivo" style="color: white; font-size: 3rem; margin-bottom: 10px;">Transmisión Virtual</h3>
                         <p style="color: #fff; font-size: 0.95rem; line-height: 1.6; margin-bottom: 20px;">
@@ -167,7 +149,7 @@
 
                     <h3 class="subtitulo-elegante">LLUVIA DE SOBRES</h3>
                     <p id="regalo-texto" style="color: #fff; font-size: 0.95rem; line-height: 1.6;">
-                        Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento para que deposites tu sobre.
+                        Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento.
                     </p>
                     
                     <div id="seccion-bancaria-desplegable" class="datos-bancarios" style="display: none;">
@@ -191,14 +173,12 @@
 
             <div class="divisor-dorado"></div>
 
-            <!-- CONFIRMACIÓN Y CALENDARIO AJUSTADO (7:00 PM A 11:59 PM) -->
             <div class="bloque-seccion bloque-claro">
                 <h3 class="subtitulo-elegante cursivo">Confirmar Asistencia</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 20px;">Queremos preparar todos los detalles, déjanos saber si contaremos con tu valiosa compañía antes del 20 de Julio de 2026.</p>
-                
                 <div class="botones-confirmar-unificados">
                     <a href="https://forms.gle/RdDDguU4DBg2iCAg8" target="_blank" class="btn btn-confirmar-principal" style="margin-bottom: 12px;">CONFIRMAR ASISTENCIA</a>
-                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Dayana+%26+Exio&dates=20270108T190000Z/20270108T235900Z&details=%C2%A1Acomp%C3%A1%C3%B1anos+a+celebrar+nuestra+uni%C3%B3n+matrimonial!&location=La+terraza+del+porton,+Av.+Gran+Colombia+%236E-57,+C%C3%BAcuta" target="_blank" class="btn btn-calendario-principal">AGENDAR AL CALENDARIO</a>
+                    <a href="https://calendar.google.com/calendar/render?action=TEMPLATE&text=Boda+Dayana+%26+Exio&dates=20270108T190000Z/20270108T235900Z&details=Acomp%C3%A1%C3%B1anos+a+celebrar+nuestra+uni%C3%B3n+matrimonial!&location=La+terraza+del+porton,+Av.+Gran+Colombia+%236E-57,+C%C3%BAcuta" target="_blank" class="btn btn-calendario-principal">AGENDAR AL CALENDARIO</a>
                 </div>
             </div>
 
@@ -206,7 +186,6 @@
             <div class="bloque-seccion bloque-claro" style="padding-top: 10px;">
                 <p class="agradecimiento-final">¡Te esperamos!</p>
             </div>
-
         </div>
     </div>
 

@@ -30,7 +30,7 @@
 
     <div class="container">
         <h1>Panel Administrativo - Dayana & Exio</h1>
-        <p>Generador de invitaciones con enlaces estéticos personalizados para WhatsApp.</p>
+        <p>Generador de invitaciones con enlaces estetzen personalizados para WhatsApp.</p>
         
         <hr style="border: 0; height: 1px; background: #ddd; margin: 20px 0;">
 
@@ -49,7 +49,7 @@
             <label for="select-tipo">Ubicación del Invitado:</label>
             <select id="select-tipo">
                 <option value="local">Local (Cúcuta / Colombia)</option>
-                <option value="afuera">Fuera (Internacional con módulo de regalos)</option>
+                <option value="fuera">Fuera (Internacional con módulo de regalos)</option>
             </select>
         </div>
 
@@ -102,13 +102,13 @@
             dbInvitados.push(nuevoInvitado);
             localStorage.setItem('boda_invitados', JSON.stringify(dbInvitados));
 
-            // GENERACIÓN DINÁMICA DE LA URL CON PARÁMETROS COMPLETOS
+            // GENERACIÓN DINÁMICA DE LA URL CON PARÁMETROS HOMOLOGADOS
             const nombreFormateado = encodeURIComponent(nombre.replace(/\s+/g, '-'));
             const pasesFormateados = encodeURIComponent(pases);
             
             const urlLimpia = window.location.origin + window.location.pathname.replace('admin.html', '');
             
-            // Ahora la URL final incluye tanto los pases adicionales como el tipo de ubicación
+            // Garantiza que el parámetro de tipo coincida exactamente con la validación de la invitación
             const linkFinal = `${urlLimpia}?to=${nombreFormateado}&invitados=${pasesFormateados}&tipo=${tipo}`;
 
             const contenedorResultado = document.getElementById('resultado-link');
@@ -136,7 +136,7 @@
                 fila.innerHTML = `
                     <td><strong>${inv.nombre}</strong></td>
                     <td>${inv.pases ? inv.pases : 'Solo pase principal'}</td>
-                    <td>${inv.tipo === 'afuera' ? '✈ Internacional' : '🏠 Local'}</td>
+                    <td>${inv.tipo === 'fuera' ? '✈ Internacional' : '🏠 Local'}</td>
                     <td><span class="badge ${claseBadge}">${textoEstado}</span></td>
                     <td>
                         <button class="btn-eliminar" onclick="eliminarInvitado(${index})">Eliminar</button>
