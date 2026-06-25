@@ -102,10 +102,14 @@
             dbInvitados.push(nuevoInvitado);
             localStorage.setItem('boda_invitados', JSON.stringify(dbInvitados));
 
-            // GENERACIÓN DINÁMICA DE LA URL BASADA EN EL REPOSITORIO ACTUAL
+            // GENERACIÓN DINÁMICA DE LA URL CON PARÁMETROS COMPLETOS
             const nombreFormateado = encodeURIComponent(nombre.replace(/\s+/g, '-'));
+            const pasesFormateados = encodeURIComponent(pases);
+            
             const urlLimpia = window.location.origin + window.location.pathname.replace('admin.html', '');
-            const linkFinal = `${urlLimpia}?to=${nombreFormateado}`;
+            
+            // Ahora la URL final incluye tanto los pases adicionales como el tipo de ubicación
+            const linkFinal = `${urlLimpia}?to=${nombreFormateado}&invitados=${pasesFormateados}&tipo=${tipo}`;
 
             const contenedorResultado = document.getElementById('resultado-link');
             contenedorResultado.style.display = 'block';
