@@ -42,12 +42,17 @@ body {
     background-color: #f4f6f2; /* Color de respaldo elegante si la imagen tarda */
 }
 
+/* Tipografía curva y estilizada idéntica a la imagen image_cd97cb.png */
 .instruccion {
-    margin-top: 15px;
-    font-size: 0.85rem;
-    color: #4a5d24;
-    font-weight: bold;
-    letter-spacing: 2px;
+    margin-top: 25px;
+    font-family: 'Playfair Display', serif;
+    font-style: italic;         /* Otorga la curvatura elegante a las letras */
+    font-size: 1.25rem;         /* Tamaño estilizado para destacar el diseño */
+    color: #4a5d24;             /* Verde oliva oscuro exacto */
+    font-weight: 500;           /* Grosor medio premium */
+    letter-spacing: 2px;        /* Espaciado sutil entre caracteres */
+    text-transform: uppercase;  /* Forzado en mayúsculas según la referencia */
+    opacity: 0.85;              /* Opacidad suavizada de alta gama */
     animation: palpitar 2s infinite;
 }
 
@@ -240,7 +245,7 @@ body {
     letter-spacing: 0.5px; 
 }
 
-/* Solución de contraste para el contador en fondos claros (como el de la imagen image_cee8e8.png) */
+/* Solución de contraste para el contador en fondos claros */
 .bloque-claro .unidad-tiempo {
     background-color: rgba(125, 143, 105, 0.15); /* Fondo oliva suave traslúcido */
     border: 1px solid rgba(125, 143, 105, 0.3);  /* Borde oliva definido */
@@ -308,9 +313,11 @@ body {
 .circulo-color.blanco { background-color: #ffffff; }
 .circulo-color.verde { background-color: #7d8f69; }
 .circulo-color.gris { background-color: #9e9e9e; }
-.circulo-color.palorosa {
-    background-color: #e8c5c8; /* Color representativo del palo rosa */
-    border: 1px solid #d4b2b5;
+
+/* Forzado de color de alta especificidad para Palo Rosa (imagen image_f8c61f.png) */
+.colores-prohibidos .item-color .circulo-color.palorosa {
+    background-color: #e8c5c8 !important;
+    border: 1px solid #d4b2b5 !important;
 }
 
 /* COMPONENTES BANCO / REGALOS */
