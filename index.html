@@ -3,211 +3,127 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Invitación de Boda - Dayana & Exio</title>
+    <title>Nuestra Boda</title>
+    <!-- Fuentes Premium -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400..700;1,400..700&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Parisienne&family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css?v=1.2">
 </head>
 <body>
 
-    <!-- REPRODUCTOR DE AUDIO OCULTO -->
-    <audio id="musica-boda" loop>
-        <source src="musica.mp3" type="audio/mpeg">
-    </audio>
-
     <!-- PANTALLA 1: EL SOBRE INICIAL -->
     <div id="pantalla-sobre" class="pantalla-sobre">
-        <div class="sobre-wrapper-imagen" id="sobre-clic">
-            <img src="sobre.jpg" alt="Sobre de Invitación" class="imagen-sobre-canva">
-            <p class="instruccion">TOCA EL SOBRE PARA ABRIR</p>
+        <div class="sobre-wrapper-imagen" onclick="abrirInvitacion()">
+            <!-- Imagen del sobre proporcionada -->
+            <img src="image_cd97cb.png" alt="Sobre de Invitación" class="imagen-sobre-canva">
+            <p class="instruccion">Toca para abrir</p>
         </div>
     </div>
 
-    <!-- PANTALLA 2: CONTENIDO DE LA INVITACIÓN -->
+    <!-- PANTALLA 2: CONTENIDO PRINCIPAL -->
     <div id="contenido-invitacion" class="contenido-oculto">
         <div class="marco-invitacion">
             <div id="contenedor-petalos"></div>
 
-            <!-- BLOQUE CABECERA con FOTO 1 -->
-            <div class="bloque-seccion bloque-oscuro">
-                <div class="contenedor-foto">
-                    <img src="foto1.jpeg" alt="Dayana y Exio - Foto Principal" class="foto-boda">
-                </div>
-                <h1 class="nombres-novios">Dayana</h1>
-                <div class="ampersand">&</div>
-                <h1 class="nombres-novios">Exio</h1>
-            </div>
-
-            <div class="divisor-dorado"></div>
-
-            <!-- BLOQUE BIENVENIDA -->
-            <div class="bloque-seccion bloque-claro">
-                <h2 id="nombre-invitado" class="texto-invitado">Invitado Especial</h2>
-                
+            <!-- BLOQUE 1: BIENVENIDA (OSCURO) -->
+            <section class="bloque-seccion bloque-oscuro">
                 <p class="versiculo">
-                    "Si alguno prevalece contra el que está solo, dos estarán contra él, pues cordón de tres dobleces no se rompe pronto."<br>
-                    <span class="cita-versiculo">Eclesiastés 4,12</span>
+                    "Por encima de todo, vístanse de amor, que es el vínculo perfecto."
+                    <span class="cita-versiculo">Colosenses 3:14</span>
                 </p>
-
-                <!-- Gráfico premium SVG -->
-                <div class="ilustracion-boda-svg">
-                    <svg viewBox="0 0 100 50" class="svg-boda">
-                        <path d="M10,40 Q50,55 90,40" fill="none" stroke="#baa06a" stroke-width="1" stroke-dasharray="2,2"/>
-                        <path d="M25,43 Q50,48 75,43" fill="none" stroke="#baa06a" stroke-width="0.8"/>
-                        <circle cx="46" cy="40" r="7" fill="none" stroke="#dab569" stroke-width="2" />
-                        <circle cx="54" cy="40" r="7" fill="none" stroke="#bfa054" stroke-width="2" />
-                        <circle cx="50" cy="34" r="2" fill="#fff" stroke="#baa06a" stroke-width="0.5"/>
-                        <circle cx="43" cy="46" r="1.5" fill="#fff" stroke="#baa06a" stroke-width="0.5"/>
-                        <circle cx="57" cy="46" r="1.5" fill="#fff" stroke="#baa06a" stroke-width="0.5"/>
-                    </svg>
+                <div class="divisor-dorado"></div>
+                <div style="margin-top: 30px;">
+                    <!-- Ajusta los nombres de acuerdo a tu boda -->
+                    <h1 class="nombres-novios">Exio & Dayana</h1>
                 </div>
-                
-                <p class="introduccion-texto">
-                    Hemos decidido unir nuestras vidas en matrimonio y nos llenaría de alegría contar con su compañía en este día tan especial. Con mucho cariño, queremos invitar a las siguientes personas de su familia:
-                </p>
+            </section>
 
-                <div class="lista-pases-contenedor">
-                    <ul id="detalle-pases">
-                        <!-- Dinámico -->
+            <!-- BLOQUE 2: DETALLES PRINCIPALES (CLARO) -->
+            <section class="bloque-seccion bloque-claro">
+                <p class="texto-invitado">¡Hola, <span id="nombre-invitado">Invitado</span>!</p>
+                <p style="margin-bottom: 30px; line-height: 1.6;">Tenemos el honor de invitarte a compartir con nosotros el día más importante de nuestras vidas.</p>
+                
+                <!-- Ilustración de anillos -->
+                <div class="ilustracion-boda-svg">
+                    <img src="image_fa009a.png" alt="Detalles" style="width:100%; height:auto;">
+                </div>
+
+                <!-- Control de pases e invitados -->
+                <div id="bloque-pases" class="lista-pases-contenedor">
+                    <ul>
+                        <li id="info-pases">Cargando pases...</li>
                     </ul>
                 </div>
+                <p id="nota-cupos" class="nota-aclaratoria">Agradecemos de corazón tu comprensión: los cupos están estrictamente asignados.</p>
+            </section>
 
-                <!-- NOTA AMABLE SOBRE INVITADOS Y NIÑOS -->
-                <p class="nota-aclaratoria" style="font-size: 0.85rem; color: #607345; font-style: italic; margin-top: 15px; line-height: 1.4; padding: 0 10px;">
-                    * Con el fin de asegurar la comodidad de todos, les informamos amablemente que los cupos son estrictamente limitados a las personas registradas en esta invitación. Asimismo, hemos optado por celebrar una velada exclusivamente para adultos, por lo que agradecemos su comprensión al no asistir con niños.
-                </p>
-            </div>
-
-            <div class="divisor-dorado"></div>
-
-            <!-- BLOQUE CUENTA REGRESIVA -->
-            <div class="bloque-seccion bloque-oscuro">
-                <h3 class="subtitulo-elegante">SAVE THE DATE</h3>
-                <h4 class="fecha-texto">Enero 8, 2027</h4>
-                <p style="color: white; font-style: italic; margin-bottom: 5px; font-size: 0.9rem;">Solo faltan:</p>
-                <div id="contador-boda"></div>
-            </div>
-
-            <div class="divisor-dorado"></div>
-
-            <!-- BLOQUE RECEPCIÓN -->
-            <div class="bloque-seccion bloque-claro">
-                <h3 class="subtitulo-elegante cursivo">Recepción</h3>
-                <p class="datos-lugar"><strong>Hora:</strong> 7:00 pm</p>
-                <p class="datos-lugar"><strong>Lugar:</strong> La terraza del porton</p>
-                <p class="datos-lugar"><strong>Dirección:</strong> Av gran colombia número 6E-57</p>
-                <p class="datos-lugar-ciudad">Cúcuta, Colombia</p>
+            <!-- BLOQUE 3: CUANDO Y DÓNDE (OSCURO) -->
+            <section class="bloque-seccion bloque-oscuro">
+                <h2 class="subtitulo-elegante">Cuándo & Dónde</h2>
                 
-                <div class="botones-locales">
-                    <a href="https://maps.app.goo.gl/eHX2nM8Q3NPbkQASA?g_st=aw" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
-                    <a href="https://waze.com/ul/hd3kkykug3" target="_blank" class="btn btn-waze">Ver en Waze</a>
+                <!-- Contador de tiempo -->
+                <div id="contador" class="contador-display">
+                    <div class="unidad-tiempo"><span id="dias" class="numero">00</span><span class="etiqueta">Días</span></div>
+                    <div class="unidad-tiempo"><span id="horas" class="numero">00</span><span class="etiqueta">Horas</span></div>
+                    <div class="unidad-tiempo"><span id="minutos" class="numero">00</span><span class="etiqueta">Min</span></div>
+                    <div class="unidad-tiempo"><span id="segundos" class="numero">00</span><span class="etiqueta">Seg</span></div>
                 </div>
-            </div>
 
-            <div class="divisor-dorado"></div>
-
-            <!-- BLOQUE INTERMEDIO con FOTO 2 -->
-            <div class="bloque-seccion bloque-oscuro">
-                <div class="contenedor-foto">
-                    <img src="foto2.jpeg" alt="Dayana y Exio - Foto Secundaria" class="foto-boda">
+                <div style="margin-top: 35px;">
+                    <p class="datos-lugar" style="font-weight: 600; font-size: 1.2rem; color: #dab569;">La terraza del porton</p>
+                    <p class="datos-lugar-ciudad">Cúcuta, Colombia</p>
+                    <p class="datos-lugar" style="opacity: 0.9; margin-bottom: 25px;">Sábado, 12 de Diciembre de 2026<br>Hora: 4:00 PM</p>
                 </div>
-                <p style="font-style: italic; font-size: 1.1rem; margin: 0; font-family: 'Playfair Display', serif;">"Por encima de todo, vístanse de amor, que es el vínculo perfecto."</p>
-            </div>
 
-            <div class="divisor-dorado"></div>
+                <div class="botones-confirmar-unificados">
+                    <a href="https://maps.google.com" target="_blank" class="btn btn-maps">Ver en Google Maps</a>
+                </div>
+            </section>
 
-            <!-- BLOQUE DRESS CODE -->
-            <div class="bloque-seccion bloque-claro">
-                <h3 class="subtitulo-elegante">DRESS CODE</h3>
-                <div class="detalles-vestimenta">
-                    <div class="genero-code">
-                        <p class="titulo-genero">Hombres:</p>
-                        <p class="descripcion-genero">Traje formal para hombre.</p>
+            <!-- BLOQUE 4: CONFIRMACIÓN Y DATOS INTERNACIONALES (CLARO) -->
+            <!-- Este bloque se controla dinámicamente mediante el JS -->
+            <section id="bloque-virtual-regalos" class="bloque-seccion bloque-claro" style="display: none;">
+                <div id="contenido-fuera-cucuta">
+                    <h2 class="subtitulo-elegante">Transmisión Virtual</h2>
+                    <p style="line-height: 1.6; margin-bottom: 20px;">Como sabemos que nos acompañas desde la distancia, queremos que vivas cada momento con nosotros en nuestra transmisión en vivo.</p>
+                    <a href="https://youtube.com" target="_blank" class="btn btn-maps" style="background-color:#7d8f69; margin-bottom: 40px;">Unirse al En Vivo</a>
+                    <div class="divisor-dorado" style="margin-bottom: 35px;"></div>
+                </div>
+
+                <h2 class="subtitulo-elegante">Lluvia de Sobres</h2>
+                <p style="line-height: 1.6; margin-bottom: 20px;">Tu presencia es nuestro mejor regalo, pero si deseas hacernos un detalle, compartimos nuestra cuenta bancaria:</p>
+                
+                <div class="datos-bancarios">
+                    <span class="etiqueta-banco">BANCO BANCOLOMBIA</span>
+                    <div class="campo-copia">
+                        <p>Ahorros: <span id="num-cuenta">123-456789-00</span></p>
+                        <button class="btn-copiar-dato" onclick="copiarCuenta()">Copiar</button>
                     </div>
-                    <div class="genero-code">
-                        <p class="titulo-genero">Mujeres:</p>
-                        <p class="descripcion-genero">Vestido largo formal, sin escotes pronunciados ni tiras.</p>
-                    </div>
                 </div>
 
-                <p class="aviso-colores">Respetuosamente les solicitamos reservar los siguientes colores de uso exclusivo de la novia y la corte:</p>
+                <div class="botones-confirmar-unificados" style="margin-top: 35px;">
+                    <a href="https://wa.me/573000000000?text=Hola!%20Confirmo%20mi%20asistencia" target="_blank" class="btn btn-confirmar-principal">Confirmar Asistencia</a>
+                </div>
+            </section>
+
+            <!-- BLOQUE 5: CÓDIGO DE VESTIMENTA (OSCURO) -->
+            <section class="bloque-seccion bloque-oscuro">
+                <h2 class="subtitulo-elegante">Código de Vestimenta</h2>
+                <p style="font-size: 1.1rem; font-weight: 600; color: #dab569; margin-bottom: 5px;">FORMAL GUAYABERA</p>
+                <p class="aviso-colores">Agradecemos evitar los siguientes colores reservados por los novios:</p>
+                
                 <div class="colores-prohibidos">
                     <div class="item-color"><span class="circulo-color blanco"></span> Blanco</div>
-                    <div class="item-color"><span class="circulo-color verde"></span> Verde</div>
-                    <div class="item-color"><span class="circulo-color gris"></span> Gris</div>
                     <div class="item-color"><span class="circulo-color palorosa"></span> Palo Rosa</div>
+                    <div class="item-color"><span class="circulo-color verde"></span> Verde</div>
                 </div>
-            </div>
 
-            <div class="divisor-dorado"></div>
-
-            <!-- BLOQUE REGALOS / LLUVIA DE SOBRES DINÁMICO -->
-            <div class="bloque-seccion bloque-oscuro">
-                <h3 class="subtitulo-elegante">LLUVIA DE SOBRES</h3>
-                
-                <p id="regalo-local" style="color: #fff; font-size: 0.95rem; line-height: 1.6; display: none;">
-                    Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento para que deposites tu sobre.
-                </p>
-
-                <p id="regalo-afuera" style="color: #fff; font-size: 0.95rem; line-height: 1.6; display: none;">
-                    Tu presencia es nuestro mejor regalo. Si deseas realizarnos un detalle en efectivo, dispondremos de una urna el día del evento o puedes realizar una transferencia bancaria:
-                </p>
-                
-                <div id="seccion-regalos" class="datos-bancarios" style="display: none;">
-                    <div class="campo-copia" style="margin-bottom: 8px;">
-                        <div>
-                            <span class="etiqueta-banco">Banco Falabella (Ahorros):</span>
-                            <p id="cuenta-novia">11180051541</p>
-                        </div>
-                        <button class="btn-copiar-dato" onclick="copiarDatoBancario('cuenta-novia', this)">Copiar Cuenta</button>
-                    </div>
-                    <div class="campo-copia">
-                        <div>
-                            <span class="etiqueta-banco">Llave para transferencia:</span>
-                            <p id="llave-novia">@BFDG004969</p>
-                        </div>
-                        <button class="btn-copiar-dato" onclick="copiarDatoBancario('llave-novia', this)">Copiar Llave</button>
-                    </div>
-                </div>
-            </div>
-
-            <div class="divisor-dorado"></div>
-
-            <!-- BLOQUE CONFIRMACIÓN PRESENCIAL PRINCIPAL -->
-            <div class="bloque-seccion bloque-claro">
-                <h3 class="subtitulo-elegante cursivo">Confirmar Asistencia</h3>
-                <p style="font-size: 0.95rem; margin-bottom: 20px;">Queremos preparar todos los detalles, déjanos saber si contaremos con tu valiosa compañía antes del 20 de Julio de 2026.</p>
-                <div id="contador-confirmacion"></div>
-                
-                <div class="botones-confirmar-unificados">
-                    <a href="https://forms.gle/RdDDguU4DBg2iCAg8" target="_blank" class="btn btn-confirmar-principal">CONFIRMAR ASISTENCIA</a>
-                    <button class="btn btn-calendario-principal">AGENDAR EN CALENDARIO</button>
-                </div>
-            </div>
-
-            <!-- TRANSMISIÓN VIRTUAL AL FINAL SÓLO PARA INVITADOS DE FUERA -->
-            <div id="seccion-internacionales" style="display: none;">
-                <div class="divisor-dorado"></div>
-                <div class="bloque-seccion bloque-claro">
-                    <h3 class="subtitulo-elegante cursivo">Transmisión Virtual</h3>
-                    <p>Para nuestros familiares y amigos que se encuentran lejos, nos encantaría que nos acompañen a través de nuestra transmisión en vivo.</p>
-                    
-                    <div class="botones-confirmar-unificados">
-                        <a href="https://forms.gle/XENnP5TWRh7fCxd69" target="_blank" class="btn btn-maps" style="margin-bottom: 15px;">Confirmación asistencia virtual</a>
-                        <a href="https://youtube.com" target="_blank" class="btn btn-virtual" style="background-color: #7d8f69; color: white; border: 1px solid #fff;">Unirse a la Transmisión</a>
-                    </div>
-                </div>
-            </div>
-
-            <div class="divisor-dorado"></div>
-            <div class="bloque-seccion bloque-claro" style="padding-top: 10px;">
-                <p class="agradecimiento-final">¡Te esperamos!</p>
-            </div>
-
+                <h3 class="agradecimiento-final">¡Te Esperamos!</h3>
+            </section>
         </div>
     </div>
 
-    <script src="script.js"></script>
+    <script src="script.js?v=1.2"></script>
 </body>
 </html>
